@@ -10,6 +10,19 @@ const config: webpack.Configuration = merge(base, {
     hot: true,
     contentBase: base.output.path
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'dts-css-modules-loader',
+          'css-loader?modules',
+          'sass-loader'
+        ]
+      }
+    ]
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]

@@ -1,0 +1,23 @@
+@import '@/style/variable/color.scss';
+@import '@/style/variable/font.scss';
+
+.s-button {
+  height: 34px;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 5px;
+  box-shadow: none;
+  color: $color-white;
+  border: none;
+  font-size: $font-size-base;
+  background: $color-primary;
+
+  &.small{
+    height: 24px;
+    font-size: $font-size-small;
+  }
+  &.large{
+    height: 48px;
+    font-size: $font-size-large;
+  }
+}
