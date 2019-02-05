@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "sourceMap": true
+    "sourceMap": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@*": [
+        "src*"
+      ]
+    }
   }
 }
