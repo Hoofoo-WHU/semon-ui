@@ -3,21 +3,39 @@
 
 .s-button {
   height: 34px;
-  padding-left: 1em;
-  padding-right: 1em;
-  border-radius: 5px;
+  font-size: $font-size-base;
+  background: $color-primary;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 4px;
   box-shadow: none;
   color: $color-white;
   border: none;
-  font-size: $font-size-base;
-  background: $color-primary;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: all .3s;
+  box-sizing: border-box;
 
+  margin-right: 8px;
+  margin-bottom: 12px;
+
+  &:hover{
+    background-color: lighten($color: $color-primary, $amount: 5)
+  }
   &.small{
     height: 24px;
-    font-size: $font-size-small;
+    font-size: $font-size-base;
+    padding-left: 7px;
+    padding-right: 7px;
   }
   &.large{
-    height: 48px;
+    height: 40px;
     font-size: $font-size-large;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  &:focus{
+    outline: none;
   }
 }
