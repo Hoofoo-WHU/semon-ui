@@ -1,2 +1,38 @@
-$color-primary: #3B55E6;
 $color-white: #fff;
+$color-grey-1: darken(#fff, 2);
+$color-grey-2: darken(#fff, 4);
+$color-grey-3: darken(#fff, 9);
+$color-grey-4: darken(#fff, 15);
+$color-grey-5: darken(#fff, 25);
+$color-grey-6: darken(#fff, 45);
+$color-grey-7: darken(#fff, 65);
+$color-grey-8: darken(#fff, 85);
+$color-black: #000;
+
+$color-red-6: #f5222d;
+$color-red-7: mix(black, $color-red-6, 20);
+
+
+$color-blue: #1890ff;
+$color-blue-2: mix(white, $color-blue, 80);
+$color-blue-3: mix(white, $color-blue, 60);
+$color-blue-4: mix(white, $color-blue, 40);
+$color-blue-5: mix(white, $color-blue, 20);
+$color-blue-6: $color-blue;
+$color-blue-7: mix(black, $color-blue, 20);
+
+$color-border: $color-grey-4;
+$color-text-primary: $color-grey-7;
+$color-button-shadow: $color-grey-1;
+
+$color-primary: $color-blue-6;
+$color-primary-active: $color-blue-7;
+$color-primary-hover: $color-blue-5;
+
+$color-danger: $color-red-6;
+$color-danger-active: $color-red-7;
+$color-danger-bg: $color-grey-2;
+
+$color-disabled-text: $color-grey-5;
+$color-disabled-bg: $color-grey-2;
+$color-disabled-border: $color-grey-4;

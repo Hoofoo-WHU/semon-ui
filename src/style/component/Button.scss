@@ -1,28 +1,25 @@
 @import '@/style/variable/color.scss';
 @import '@/style/variable/font.scss';
 
-.s-button {
+.button {
   height: 34px;
   font-size: $font-size-base;
-  background: $color-primary;
+  font-family: $font-family;
   padding-left: 12px;
   padding-right: 12px;
   border-radius: 4px;
-  box-shadow: none;
-  color: $color-white;
-  border: none;
-  cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   transition: all .3s;
   box-sizing: border-box;
-
+  box-shadow: 0 2px $color-button-shadow;
+  border: 1px solid $color-border;
   margin-right: 8px;
   margin-bottom: 12px;
+  background: $color-white;
+  color: $color-text-primary;
+  cursor: pointer;
 
-  &:hover{
-    background-color: lighten($color: $color-primary, $amount: 5)
-  }
   &.small{
     height: 24px;
     font-size: $font-size-base;
@@ -37,5 +34,50 @@
   }
   &:focus{
     outline: none;
+  }
+  &:hover{
+    color: $color-primary-hover;
+    border-color: $color-primary-hover;
+  }
+  &:active{
+    color: $color-primary-active;
+    border-color: $color-primary-active;
+  }
+
+  &.primary{
+    color: $color-white;
+    background-color: $color-primary;
+    border-color: $color-primary;
+    &:hover{
+      background-color: $color-primary-hover;
+    }
+    &:active{
+      background-color: $color-primary-active;
+    }
+  }
+
+  &.danger{
+    color: $color-danger;
+    background-color: $color-danger-bg;
+    &:hover{
+      color: $color-white;
+      background-color: $color-danger;
+      border-color: $color-danger;
+    }
+    &:active{
+      background-color: $color-danger-active;
+      border-color: $color-danger-active;
+    }
+  }
+
+  &.dashed{
+    border-style: dashed;
+  }
+
+  &:disabled{
+    background-color: $color-disabled-bg;
+    border-color: $color-disabled-border;
+    color: $color-disabled-text;
+    cursor: not-allowed;
   }
 }

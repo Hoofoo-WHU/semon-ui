@@ -17,7 +17,7 @@ const config: webpack.Configuration = merge(base, {
         use: [
           'style-loader',
           'dts-css-modules-loader',
-          'css-loader?modules',
+          'css-loader?modules&localIdentName=s-[local]',
           'sass-loader'
         ]
       }

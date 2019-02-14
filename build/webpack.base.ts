@@ -3,10 +3,12 @@ import * as webpack from 'webpack'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config: webpack.Configuration = {
-  entry: path.resolve('src/index.tsx'),
+  entry: {
+    index: path.resolve('src/index.tsx'),
+  },
   output: {
     path: path.resolve('dist'),
-    filename: '[name]-[hash:8].js'
+    filename: '[name].js',
   },
   resolve: {
     alias: {
@@ -30,7 +32,7 @@ const config: webpack.Configuration = {
             }
           }
         ],
-        exclude: /node_modules/
+        exclude: /node_modules|dist/
       }
     ]
   },
