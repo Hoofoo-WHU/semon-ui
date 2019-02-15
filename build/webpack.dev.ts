@@ -1,9 +1,15 @@
 import * as webpack from 'webpack'
 import * as merge from 'webpack-merge'
+import * as path from 'path'
+import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+
 
 import base from './webpack.base'
 
 const config: webpack.Configuration = merge(base, {
+  entry: {
+    index: path.resolve('src/app.tsx'),
+  },
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
@@ -24,7 +30,10 @@ const config: webpack.Configuration = merge(base, {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve('src/index.html')
+    })
   ]
 })
 

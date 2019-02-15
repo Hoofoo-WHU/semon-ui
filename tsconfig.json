@@ -4,7 +4,6 @@
     "sourceMap": true,
     "jsx": "preserve",
     "baseUrl": ".",
-    "declaration": true,
     "paths": {
       "@*": [
         "src*"

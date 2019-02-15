@@ -1,11 +1,7 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
-import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config: webpack.Configuration = {
-  entry: {
-    index: path.resolve('src/index.tsx'),
-  },
   output: {
     path: path.resolve('dist'),
     filename: '[name].js',
@@ -27,20 +23,15 @@ const config: webpack.Configuration = {
               presets: [
                 '@babel/preset-env',
                 '@babel/preset-react',
-                '@babel/preset-typescript'
               ]
             }
-          }
+          },
+          'ts-loader'
         ],
         exclude: /node_modules|dist/
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve('src/index.html')
-    })
-  ]
+  }
 }
 
 export default config

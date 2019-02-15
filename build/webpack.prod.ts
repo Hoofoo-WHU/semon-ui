@@ -7,12 +7,13 @@ import * as fs from 'fs'
 
 const componentEntry = {}
 fs.readdirSync(path.resolve('src/component')).forEach(file => {
-  componentEntry[`lib/${file.replace(/\.tsx$/, '')}`] = path.resolve(`src/component/${file}`)
+  componentEntry[`${file.replace(/\.tsx$/, '')}`] = path.resolve(`src/component/${file}`)
 })
 
 const config: webpack.Configuration = merge(base, {
   mode: 'production',
   entry: {
+    index: path.resolve('src/index.ts'),
     ...componentEntry
   },
   output: {

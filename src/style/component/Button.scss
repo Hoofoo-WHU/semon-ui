@@ -1,12 +1,28 @@
 @import '@/style/variable/color.scss';
 @import '@/style/variable/font.scss';
 
-.button {
+%button-small {
+  height: 24px;
+  font-size: $font-size-base;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+%button-normal {
   height: 34px;
   font-size: $font-size-base;
-  font-family: $font-family;
   padding-left: 12px;
   padding-right: 12px;
+}
+%button-large {
+  height: 40px;
+  font-size: $font-size-large;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.button {
+  @extend %button-normal;
+  font-family: $font-family;
   border-radius: 4px;
   user-select: none;
   -webkit-user-select: none;
@@ -14,23 +30,15 @@
   box-sizing: border-box;
   box-shadow: 0 2px $color-button-shadow;
   border: 1px solid $color-border;
-  margin-right: 8px;
-  margin-bottom: 12px;
   background: $color-white;
   color: $color-text-primary;
   cursor: pointer;
 
   &.small{
-    height: 24px;
-    font-size: $font-size-base;
-    padding-left: 7px;
-    padding-right: 7px;
+    @extend %button-small;
   }
   &.large{
-    height: 40px;
-    font-size: $font-size-large;
-    padding-left: 15px;
-    padding-right: 15px;
+    @extend %button-large;
   }
   &:focus{
     outline: none;
@@ -50,9 +58,11 @@
     border-color: $color-primary;
     &:hover{
       background-color: $color-primary-hover;
+      border-color: $color-primary-hover;
     }
     &:active{
       background-color: $color-primary-active;
+      border-color: $color-primary-active;
     }
   }
 
@@ -75,9 +85,45 @@
   }
 
   &:disabled{
-    background-color: $color-disabled-bg;
-    border-color: $color-disabled-border;
-    color: $color-disabled-text;
-    cursor: not-allowed;
+    background-color: $color-disabled-bg !important;
+    border-color: $color-disabled-border !important;
+    color: $color-disabled-text !important;
+    cursor: not-allowed !important;
+  }
+}
+
+.button-group {
+  display: inline-block;
+  >.button{
+    @extend %button-normal;
+    margin-right: 0;
+    position: relative;
+    z-index: 0;
+    &:hover:not(.primary){
+      z-index: 1;
+    }
+    &:not(:first-child){
+      margin-left: -1px;
+      &.primary{
+        border-left-color: $color-primary-hover;
+      }
+    }
+    &:not(:first-child):not(:last-child){
+      border-radius: 0;
+    }
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.small>.button{
+    @extend %button-small;
+  }
+  &.large>.button{
+    @extend %button-large;
   }
 }
