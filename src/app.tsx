@@ -66,10 +66,8 @@ class App extends React.Component<any, IState> {
         <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
-        <div></div>
       </Button.Group>
     </div>
   }
 }
-console.dir((<Button></Button>))
 ReactDom.render(<App />, document.getElementById('app'))
