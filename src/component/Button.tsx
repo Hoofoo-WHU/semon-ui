@@ -6,6 +6,7 @@ import Icon from '@/component/Icon'
 interface IProps {
   size?: 'small' | 'large',
   type?: 'primary' | 'dashed' | 'danger',
+  shape?: 'round' | 'circle',
   icon?: Icon.types,
   iconRight?: Icon.types,
   disabled?: boolean,
@@ -21,6 +22,8 @@ class Button extends React.Component<IProps> {
     const classes = [styled['button']]
     this.props.size && classes.push(styled[this.props.size])
     this.props.type && classes.push(styled[this.props.type])
+    this.props.shape && classes.push(styled[this.props.shape])
+    this.props.children || classes.push(styled['icon-only'])
     return classes.join(' ')
   }
   onClick(e: React.MouseEvent) {
@@ -35,7 +38,7 @@ class Button extends React.Component<IProps> {
         type={this.props.htmlType}
       >
         {this.props.icon ? <Icon type={this.props.icon} /> : ''}
-        <span>{this.props.children}</span>
+        {this.props.children ? <span>{this.props.children}</span> : ''}
         {this.props.iconRight ? <Icon type={this.props.iconRight} /> : ''}
       </ button>)
   }

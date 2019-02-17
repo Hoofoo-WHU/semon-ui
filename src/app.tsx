@@ -51,8 +51,10 @@ class App extends React.Component<any, IState> {
       <Button size='large' disabled={this.state.disabled} type={this.state.type}>
         Large
       </Button>
-      <h2>with icon:</h2>
+      <h2>round:</h2>
       <Button icon="search" type={this.state.type} disabled={this.state.disabled}>Search</Button>
+      <Button icon="search" shape='round' type={this.state.type} disabled={this.state.disabled}>Search</Button>
+      <Button icon="search" shape='circle' type={this.state.type} disabled={this.state.disabled}></Button>
       <h2>group:</h2>
       <Button.Group size='small'>
         <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
@@ -69,8 +71,14 @@ class App extends React.Component<any, IState> {
         <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
       </Button.Group>
+      <Button.Group>
+        <Button type={this.state.type} disabled={this.state.disabled} icon='left'></Button>
+        <Button type={this.state.type} disabled={this.state.disabled} icon='search'></Button>
+        <Button type={this.state.type} disabled={this.state.disabled} icon='right'></Button>
+      </Button.Group>
       <h1>Icon</h1>
       <Icon type='left'></Icon>
+      <Icon type='search'></Icon>
       <Icon type='right'></Icon>
     </div>
   }

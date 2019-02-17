@@ -1,8 +1,11 @@
 export interface IButtonScss {
-  'button': string
-  'small': string
   'button-group': string
+  'small': string
+  'circle': string
+  'button': string
   'large': string
+  'round': string
+  'icon-only': string
   'primary': string
   'danger': string
   'dashed': string
