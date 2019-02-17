@@ -1,9 +1,13 @@
 import * as React from 'react'
 import styled from '@/style/component/Button.scss'
 
+import Icon from '@/component/Icon'
+
 interface IProps {
   size?: 'small' | 'large',
   type?: 'primary' | 'dashed' | 'danger',
+  icon?: Icon.types,
+  iconRight?: Icon.types,
   disabled?: boolean,
   htmlType?: string,
   onClick?: React.MouseEventHandler
@@ -30,7 +34,9 @@ class Button extends React.Component<IProps> {
         disabled={this.props.disabled}
         type={this.props.htmlType}
       >
-        {this.props.children}
+        {this.props.icon ? <Icon type={this.props.icon} /> : ''}
+        <span>{this.props.children}</span>
+        {this.props.iconRight ? <Icon type={this.props.iconRight} /> : ''}
       </ button>)
   }
 }

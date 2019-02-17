@@ -4,7 +4,7 @@ import Button from '@/component/Button'
 import Icon from '@/component/Icon'
 import '@/style/app.scss'
 
-interface IState { disabled: boolean, type?: "primary" | "dashed" | "danger" }
+interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger' }
 
 class App extends React.Component<any, IState> {
   readonly state: IState = {
@@ -51,25 +51,27 @@ class App extends React.Component<any, IState> {
       <Button size='large' disabled={this.state.disabled} type={this.state.type}>
         Large
       </Button>
+      <h2>with icon:</h2>
+      <Button icon="search" type={this.state.type} disabled={this.state.disabled}>Search</Button>
       <h2>group:</h2>
-      <Button.Group size="small">
+      <Button.Group size='small'>
         <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
-        <Button type={this.state.type} disabled={this.state.disabled} size="small">Right</Button>
+        <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
       </Button.Group>
       <Button.Group>
         <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
       </Button.Group>
-      <Button.Group size="large">
+      <Button.Group size='large'>
         <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
         <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
       </Button.Group>
-      <h2>Icon</h2>
-      <Icon type="left"></Icon>
-      <Icon type="right"></Icon>
+      <h1>Icon</h1>
+      <Icon type='left'></Icon>
+      <Icon type='right'></Icon>
     </div>
   }
 }

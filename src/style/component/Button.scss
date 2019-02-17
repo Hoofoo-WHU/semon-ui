@@ -31,9 +31,11 @@
   box-shadow: 0 2px $color-button-shadow;
   border: 1px solid $color-border;
   background: $color-white;
-  color: $color-text-primary;
+  color: $color-text;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
   cursor: pointer;
-
   &.small{
     @extend %button-small;
   }
@@ -89,6 +91,9 @@
     border-color: $color-disabled-border !important;
     color: $color-disabled-text !important;
     cursor: not-allowed !important;
+  }
+  span + .icon, .icon + span{
+    margin-left: 8px;
   }
 }
 
