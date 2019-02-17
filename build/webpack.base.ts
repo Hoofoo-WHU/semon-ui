@@ -26,7 +26,7 @@ const config: webpack.Configuration = {
               ]
             }
           },
-          'ts-loader'
+          'awesome-typescript-loader'
         ],
         exclude: /node_modules|dist/
       },

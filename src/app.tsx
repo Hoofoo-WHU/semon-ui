@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-import Button from '../dist/Button'
-import Icon from '../dist/Icon'
+import Button from '@/component/Button'
+import Icon from '@/component/Icon'
 import '@/style/app.scss'
 
 interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger' }
