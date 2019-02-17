@@ -1,16 +1,17 @@
 import * as React from 'react'
+import SVG, { types } from './SVG'
+import styled from '@/style/component/Icon.scss'
 
 interface IProps {
-  width?: number | string,
-  height?: number | string
+  style?: React.CSSProperties
+  type: types
 }
 
 class Icon extends React.Component<IProps> {
   render() {
+    const SvgIcon = SVG[this.props.type]
     return (
-      <i>
-        1
-      </i>
+      <SvgIcon className={styled.icon} style={this.props.style}></SvgIcon>
     )
   }
 }

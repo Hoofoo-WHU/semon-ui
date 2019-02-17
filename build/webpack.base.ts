@@ -29,6 +29,10 @@ const config: webpack.Configuration = {
           'ts-loader'
         ],
         exclude: /node_modules|dist/
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack']
       }
     ]
   }

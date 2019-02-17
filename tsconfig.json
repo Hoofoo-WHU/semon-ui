@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs",
+    "moduleResolution": "node",
     "sourceMap": true,
     "jsx": "preserve",
     "baseUrl": ".",
-    "declaration": true,
-    "declarationDir": "type",
+    // "declaration": true,
+    // "declarationDir": "type",
     "paths": {
       "@*": [
         "src*"

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-import Button from '../dist/Button'
+import Button from '@/component/Button'
 import Icon from '@/component/Icon'
 import '@/style/app.scss'
 
@@ -10,9 +10,6 @@ class App extends React.Component<any, IState> {
   readonly state: IState = {
     disabled: false,
     type: undefined
-  }
-  componentDidMount() {
-    console.dir(Icon)
   }
   disabled() {
     this.setState((state) => {
@@ -71,7 +68,8 @@ class App extends React.Component<any, IState> {
         <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
       </Button.Group>
       <h2>Icon</h2>
-      <Icon></Icon>
+      <Icon type="left"></Icon>
+      <Icon type="right"></Icon>
     </div>
   }
 }
