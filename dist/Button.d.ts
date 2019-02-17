@@ -1,7 +1,11 @@
 import * as React from 'react';
+import Icon from './Icon';
 interface IProps {
     size?: 'small' | 'large';
     type?: 'primary' | 'dashed' | 'danger';
+    shape?: 'round' | 'circle';
+    icon?: Icon.types;
+    iconRight?: Icon.types;
     disabled?: boolean;
     htmlType?: string;
     onClick?: React.MouseEventHandler;
