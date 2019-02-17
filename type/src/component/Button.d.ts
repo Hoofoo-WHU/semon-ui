@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon from './Icon';
+import Icon from '@/component/Icon';
 interface IProps {
     size?: 'small' | 'large';
     type?: 'primary' | 'dashed' | 'danger';
