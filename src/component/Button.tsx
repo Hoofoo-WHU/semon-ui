@@ -4,13 +4,13 @@ import styled from '@/style/component/Button.scss'
 import Icon from '@/component/Icon'
 
 interface IProps {
-  size?: 'small' | 'large',
-  type?: 'primary' | 'dashed' | 'danger',
-  shape?: 'round' | 'circle',
-  icon?: Icon.types,
-  iconRight?: Icon.types,
-  disabled?: boolean,
-  htmlType?: string,
+  size?: 'small' | 'large'
+  type?: 'primary' | 'dashed' | 'danger'
+  shape?: 'round' | 'circle'
+  icon?: Icon.types
+  iconRight?: Icon.types
+  disabled?: boolean
+  htmlType?: string
   onClick?: React.MouseEventHandler
 }
 
