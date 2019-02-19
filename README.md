@@ -1,2 +1,5 @@
+
 # semon-ui-react
-简单的react组件库
+
+![Build Status](https://travis-ci.org/Hoofoo-WHU/semon-ui-react.svg?branch=master)
+![License](https://img.shields.io/github/license/hoofoo-WHU/semon-ui-react.svg?style=flat)
