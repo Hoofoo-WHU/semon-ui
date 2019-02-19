@@ -15,6 +15,7 @@ interface IProps {
 }
 
 class Button extends React.Component<IProps> {
+  static displayName = 'Button'
   constructor(props: IProps) {
     super(props)
   }
@@ -48,6 +49,7 @@ interface IGroupProps {
 }
 namespace Button {
   export class Group extends React.Component<IGroupProps> {
+    static displayName = 'Button.Group'
     private classes() {
       const classes = [styled['button-group']]
       this.props.size && classes.push(styled[this.props.size])
