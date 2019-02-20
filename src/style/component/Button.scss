@@ -5,10 +5,14 @@
 @keyframes button-click-animation{
   0%{
     border-width: 0;
-    opacity: 1;
+    opacity: 0.2;
   }
   100%{
     border-width: 6px;
+    left: -7px;
+    right: -7px;
+    top: -7px;
+    bottom: -7px;
     opacity: 0;
   }
 }
@@ -80,14 +84,15 @@
     @extend %button-large;
   }
   &[data-click-animating]{
-    z-index: 1 !important;
-    &::before{
+    &::after{
       content: '';
       position: absolute;
-      height: 100%;
-      width: 100%;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
       border-radius: inherit;
-      border: 0px solid rgba($color-primary, 0.4);
+      border: 0 solid $color-primary;
       animation: button-click-animation .6s;
     }
   }
@@ -133,8 +138,8 @@
       background-color: $color-danger-active;
       border-color: $color-danger-active;
     }
-    &::before{
-      border-color: rgba($color-danger,.4);
+    &::after{
+      border-color: $color-danger;
     }
   }
 
@@ -160,6 +165,9 @@
     margin-right: 0;
     position: relative;
     z-index: 0;
+    &:focus:not(.primary){
+      z-index: 1 !important;
+    }
     &:hover:not(.primary){
       z-index: 2 !important;
     }

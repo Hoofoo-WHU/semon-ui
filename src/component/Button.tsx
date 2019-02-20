@@ -40,6 +40,7 @@ class Button extends React.Component<IProps, IState> {
   render() {
     return (
       <button
+        tabIndex={-1}
         className={this.classes()}
         onClick={this.onClick.bind(this)}
         disabled={this.props.disabled}
