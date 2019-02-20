@@ -1,0 +1,96 @@
+@import '@/style/variable/color.scss';
+@import '@/style/variable/font.scss';
+@import '@/style/variable/size.scss';
+
+%small{
+  height: $size-inline-height-small;
+}
+%normal{
+  color: $color-text;
+  border-radius: $size-border-radius-default;
+  height: $size-inline-height-default;
+  border: 1px solid $color-border;
+  font-size: $font-size-base;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+%large{
+  height: $size-inline-height-large;
+  font-size: $font-size-large;
+}
+.input{
+  margin: 0;
+    &:not(.input-wrapper-affix-wrapper){
+    font-family: $font-family;
+    box-sizing: border-box;
+    @extend %normal;
+    transition: all .3s;
+    padding: 4px 11px;
+    &::placeholder{
+      color: $color-placeholder;
+    }
+    &::selection{
+      background-color: $color-primary;
+      color: $color-white;
+    }
+    &.small{
+      @extend %small;
+      padding: 1px 7px;
+    }
+    &.large{
+      @extend %large;
+      padding: 6px 11px;
+    }
+    &:hover{
+      border-color: $color-primary-hover;
+    }
+    &:focus{
+      outline: none;
+      border-color: $color-primary-hover;
+      box-shadow: 0 0 0 2px rgba($color-primary,0.2);
+    }
+  }
+}
+
+.input-wrapper-affix-wrapper{
+  font-family: $font-family;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  font-size: $font-size-base;
+  .prefix{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    line-height: 0;
+  }
+  .innert-input{
+    @extend .input;
+    &:not(:first-child){
+      padding-left: 30px;
+    }
+    &:not(:last-child){
+      padding-right: 30px;
+    }
+  }
+  &.small{
+    font-size: $font-size-base;
+    .innert-input{
+      @extend %small;
+    }
+  }
+  &.large{
+    font-size: $font-size-large;
+    .innert-input{
+      @extend %large;
+    }
+  }
+  .suffix{
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 0;
+  }
+}

@@ -34,7 +34,13 @@ class App extends React.Component<any, IState> {
   render() {
     return <React.Fragment>
       <h1>Input</h1>
-      <Input></Input>
+      <Input size='small' placeholder='small size'></Input>
+      <Input placeholder='default size'></Input>
+      <Input size='large' placeholder='large size'></Input>
+      <Input placeholder='Search'
+        prefix={<Icon type='search' />}
+        suffix={<Icon type='right' />}
+      />
       <h1>Button</h1>
       <h2>options:</h2>
       <Button.Group>
