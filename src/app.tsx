@@ -34,12 +34,18 @@ class App extends React.Component<any, IState> {
   render() {
     return <React.Fragment>
       <h1>Input</h1>
-      <Input size='small' placeholder='small size'></Input>
-      <Input placeholder='default size'></Input>
-      <Input size='large' placeholder='large size'></Input>
-      <Input placeholder='Search'
-        prefix={<Icon type='search' />}
-        suffix={<Icon type='right' />}
+      <h2>normal:</h2>
+      <Input size='small' placeholder='small size' />
+      <Input placeholder='default size' />
+      <Input
+        size='large' placeholder='large size'
+        // onChange={(e) => { console.log(e.target.value) }}
+        onKeyPress={(e) => { console.log(e.key) }}
+      />
+      <h2>prefix:</h2>
+      <Input
+        placeholder='enter your username'
+        prefix={<Icon type='user' style={{ color: 'grey' }} />}
       />
       <h1>Button</h1>
       <h2>options:</h2>

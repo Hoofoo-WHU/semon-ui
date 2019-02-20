@@ -65,6 +65,9 @@
     left: 12px;
     line-height: 0;
   }
+  &[data-disabled]{
+    cursor: not-allowed;
+  }
   .innert-input{
     @extend .input;
     &:not(:first-child){
@@ -72,6 +75,12 @@
     }
     &:not(:last-child){
       padding-right: 30px;
+    }
+    &:disabled{
+      background-color: $color-disabled-bg !important;
+      border-color: $color-disabled-border !important;
+      color: $color-disabled-text !important;
+      cursor: not-allowed !important;
     }
   }
   &.small{
