@@ -13,11 +13,14 @@ interface IProps {
   htmlType?: string
   onClick?: React.MouseEventHandler
 }
-
-class Button extends React.Component<IProps> {
+interface IState {
+  clickAnimating: boolean
+}
+class Button extends React.Component<IProps, IState> {
   static displayName = 'Button'
-  constructor(props: IProps) {
-    super(props)
+  private animatingTimer: NodeJS.Timeout
+  readonly state = {
+    clickAnimating: false
   }
   private classes() {
     const classes = [styled['button']]
@@ -28,6 +31,10 @@ class Button extends React.Component<IProps> {
     return classes.join(' ')
   }
   onClick(e: React.MouseEvent) {
+    clearTimeout(this.animatingTimer)
+    this.setState({ clickAnimating: false })
+    requestAnimationFrame(() => this.setState({ clickAnimating: true }))
+    this.animatingTimer = setTimeout(() => this.setState({ clickAnimating: false }), 600)
     this.props.onClick && this.props.onClick(e)
   }
   render() {
@@ -37,6 +44,7 @@ class Button extends React.Component<IProps> {
         onClick={this.onClick.bind(this)}
         disabled={this.props.disabled}
         type={this.props.htmlType}
+        data-click-animating={this.state.clickAnimating ? '' : undefined}
       >
         {this.props.icon ? <Icon type={this.props.icon} /> : ''}
         {this.props.children ? <span>{this.props.children}</span> : ''}

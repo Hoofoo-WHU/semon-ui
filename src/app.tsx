@@ -5,12 +5,13 @@ import Icon from '@/component/Icon'
 import Input from '@/component/Input'
 import '@/style/app.scss'
 
-interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger' }
+interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger', value: string }
 
 class App extends React.Component<any, IState> {
   readonly state: IState = {
     disabled: false,
-    type: undefined
+    type: undefined,
+    value: ''
   }
   disabled() {
     this.setState((state) => {
@@ -36,11 +37,15 @@ class App extends React.Component<any, IState> {
       <h1>Input</h1>
       <h2>normal:</h2>
       <Input size='small' placeholder='small size' />
-      <Input placeholder='default size' />
+      <Input
+        placeholder='default size'
+        value={this.state.value}
+        onChange={(e) => { this.setState({ value: e.target.value }) }}
+      />
       <Input
         size='large' placeholder='large size'
-        // onChange={(e) => { console.log(e.target.value) }}
-        onKeyPress={(e) => { console.log(e.key) }}
+        value={this.state.value}
+        onChange={(e) => { this.setState({ value: e.target.value }) }}
       />
       <h2>prefix:</h2>
       <Input

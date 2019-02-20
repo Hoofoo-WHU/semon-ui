@@ -4,6 +4,7 @@ interface IProps {
   size?: 'small' | 'large'
   disabled?: boolean
   defaultValue?: string
+  value?: string
   placeholder?: string
   prefix?: React.ReactNode
   suffix?: React.ReactNode
@@ -45,10 +46,11 @@ class Input extends React.Component<IProps> {
     }
   }
   render() {
-    const { placeholder, prefix, suffix, defaultValue, disabled } = this.props
+    const { placeholder, prefix, suffix, defaultValue, value, disabled } = this.props
     const props = {
       placeholder,
       defaultValue,
+      value,
       disabled,
       type: 'text',
       onFocus: this.focusHandle.bind(this),
