@@ -17,15 +17,7 @@ const config: webpack.Configuration = {
       {
         test: /\.(jsx?|tsx?)$/,
         use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react',
-              ]
-            }
-          },
+          'babel-loader',
           'awesome-typescript-loader'
         ],
         exclude: /node_modules|dist/

@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as ReactDom from 'react-dom'
 import Button from '@/component/Button'
 import Icon from '@/component/Icon'
+import Input from '@/component/Input'
 import '@/style/app.scss'
 
 interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger' }
@@ -31,7 +32,9 @@ class App extends React.Component<any, IState> {
     this.setState({ type: 'dashed' })
   }
   render() {
-    return <div>
+    return <React.Fragment>
+      <h1>Input</h1>
+      <Input></Input>
       <h1>Button</h1>
       <h2>options:</h2>
       <Button.Group>
@@ -80,7 +83,7 @@ class App extends React.Component<any, IState> {
       <Icon type='left'></Icon>
       <Icon type='search'></Icon>
       <Icon type='right'></Icon>
-    </div>
+    </React.Fragment>
   }
 }
 ReactDom.render(<App />, document.getElementById('app'))
