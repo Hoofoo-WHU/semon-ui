@@ -72,8 +72,8 @@ class App extends React.Component<any, IState> {
       </section>
       <h1>Button</h1>
       <h2>options:</h2>
-      <Button.Group>
-        <Button onClick={this.disabled.bind(this)}>Disabled</Button>
+      <Button onClick={this.disabled.bind(this)} size='small'>{this.state.disabled ? 'Enable' : 'Disable'}</Button>
+      <Button.Group size='small'>
         <Button onClick={this.default.bind(this)}>Default</Button>
         <Button onClick={this.primary.bind(this)}>Primary</Button>
         <Button onClick={this.danger.bind(this)}>Danger</Button>
@@ -94,25 +94,30 @@ class App extends React.Component<any, IState> {
       <Button icon="search" shape='round' type={this.state.type} disabled={this.state.disabled}>Search</Button>
       <Button icon="search" shape='circle' type={this.state.type} disabled={this.state.disabled}></Button>
       <h2>group:</h2>
-      <Button.Group size='small'>
-        <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
-        <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
-        <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
+      <Button.Group type={this.state.type} disabled={this.state.disabled} size='small'>
+        <Button>Left</Button>
+        <Button>Middle</Button>
+        <Button>Right</Button>
       </Button.Group>
-      <Button.Group>
-        <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
-        <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
-        <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
+      <Button.Group type={this.state.type} disabled={this.state.disabled}>
+        <Button>Left</Button>
+        <Button>Middle</Button>
+        <Button>Right</Button>
       </Button.Group>
-      <Button.Group size='large'>
-        <Button type={this.state.type} disabled={this.state.disabled}>Left</Button>
-        <Button type={this.state.type} disabled={this.state.disabled}>Middle</Button>
-        <Button type={this.state.type} disabled={this.state.disabled}>Right</Button>
+      <Button.Group type={this.state.type} disabled={this.state.disabled} size='large'>
+        <Button>Left</Button>
+        <Button>Middle</Button>
+        <Button>Right</Button>
       </Button.Group>
-      <Button.Group>
-        <Button type={this.state.type} disabled={this.state.disabled} icon='left'></Button>
-        <Button type={this.state.type} disabled={this.state.disabled} icon='search'></Button>
-        <Button type={this.state.type} disabled={this.state.disabled} icon='right'></Button>
+      <Button.Group type={this.state.type} disabled={this.state.disabled} >
+        <Button icon='left'></Button>
+        <Button icon='search'></Button>
+        <Button icon='right'></Button>
+      </Button.Group>
+      <Button.Group type={this.state.type} disabled={this.state.disabled} shape='circle'>
+        <Button icon='left'></Button>
+        <Button icon='search'></Button>
+        <Button icon='right'></Button>
       </Button.Group>
       <h1>Icon</h1>
       <Icon type='left'></Icon>

@@ -4,6 +4,9 @@ import Icon from '@/component/Icon'
 
 interface IButtonGroupContext {
   size?: IProps['size']
+  type?: IProps['type']
+  shape?: IProps['shape']
+  disabled?: boolean
 }
 const ButtonGroupContext = React.createContext<IButtonGroupContext>({})
 
@@ -38,15 +41,23 @@ class Button extends React.Component<IProps, IState> {
     } else {
       this.props.size && classes.push(styled[this.props.size])
     }
-    this.props.type && classes.push(styled[this.props.type])
-    this.props.shape && classes.push(styled[this.props.shape])
+    if (this.context.type) {
+      classes.push(styled[this.context.type])
+    } else {
+      this.props.type && classes.push(styled[this.props.type])
+    }
+    if (this.context.shape) {
+      classes.push(styled[this.context.shape])
+    } else {
+      this.props.shape && classes.push(styled[this.props.shape])
+    }
     this.props.children || classes.push(styled['icon-only'])
     return classes.join(' ')
   }
   onClick(e: React.MouseEvent) {
     clearTimeout(this.animatingTimer)
     this.setState({ clickAnimating: false })
-    setTimeout(() => this.setState({ clickAnimating: true }), 0)
+    setTimeout(() => this.setState({ clickAnimating: true }), 16)
     this.animatingTimer = setTimeout(() => this.setState({ clickAnimating: false }), 2000)
     this.props.onClick && this.props.onClick(e)
   }
@@ -56,7 +67,7 @@ class Button extends React.Component<IProps, IState> {
         tabIndex={-1}
         className={this.classes()}
         onClick={this.onClick.bind(this)}
-        disabled={this.props.disabled}
+        disabled={this.props.disabled || this.context.disabled}
         type={this.props.htmlType}
         data-click-animating={this.state.clickAnimating ? '' : undefined}
       >
@@ -68,6 +79,9 @@ class Button extends React.Component<IProps, IState> {
 }
 interface IGroupProps {
   size?: IProps['size']
+  type?: IProps['type']
+  shape?: IProps['shape']
+  disabled?: boolean
   className?: string
 }
 namespace Button {
@@ -79,12 +93,13 @@ namespace Button {
       return classes.join(' ')
     }
     render() {
+      const { type, size, shape, disabled } = this.props
       const children = Array.isArray(this.props.children) ? this.props.children : [this.props.children]
       if (children.some((e: JSX.Element) => e.type !== (<Button />).type)) {
         console.warn("ButtonGroup has a child which isn't a Button component")
       }
       return (
-        <ButtonGroupContext.Provider value={{ size: this.props.size }}>
+        <ButtonGroupContext.Provider value={{ size, type, shape, disabled }}>
           <div className={this.classes()}>{this.props.children}</div>
         </ButtonGroupContext.Provider>
       )
