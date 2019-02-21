@@ -1,8 +1,32 @@
+@mixin span-with-size($name, $width) {
+  @media screen and (max-width: $width){
+    @for $i from 1 through 24{
+      &.span-#{$name}-#{$i}{
+        width: $i / 24 * 100%;
+      }
+    }
+  }
+}
 
 @mixin span() {
   @for $i from 1 through 24{
     &.span-#{$i}{
       width: $i / 24 * 100%;
+    }
+  }
+  @include span-with-size(xl, 1599px);
+  @include span-with-size(lg, 1199px);
+  @include span-with-size(md, 991px);
+  @include span-with-size(sm, 767px);
+  @include span-with-size(xs, 575px);
+}
+
+@mixin offset-with-size($name, $width) {
+  @media screen and (max-width: $width){
+    @for $i from 1 through 24{
+      &.offset-#{$name}-#{$i}{
+        margin-left: $i / 24 * 100%;
+      }
     }
   }
 }
@@ -13,6 +37,21 @@
       margin-left: $i / 24 * 100%;
     }
   }
+  @include offset-with-size(xl, 1599px);
+  @include offset-with-size(lg, 1199px);
+  @include offset-with-size(md, 991px);
+  @include offset-with-size(sm, 767px);
+  @include offset-with-size(xs, 575px);
+}
+
+@mixin order-with-size($name ,$width) {
+  @media screen and (max-width: $width){
+    @for $i from 1 through 24{
+      &.order-#{$name}-#{$i}{
+        order: $i;
+      }
+    }
+  }
 }
 
 @mixin order() {
@@ -21,10 +60,16 @@
       order: $i;
     }
   }
+  @include order-with-size(xl, 1599px);
+  @include order-with-size(lg, 1199px);
+  @include order-with-size(md, 991px);
+  @include order-with-size(sm, 767px);
+  @include order-with-size(xs, 575px);
 }
 
-
 .col{
+  width: 100%;
+  transition: all .3s;
   @include span();
   @include offset();
   @include order();

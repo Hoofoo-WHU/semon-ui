@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
-
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 const config: webpack.Configuration = {
   output: {
     path: path.resolve('dist'),
@@ -27,7 +27,10 @@ const config: webpack.Configuration = {
         use: ['@svgr/webpack']
       }
     ]
-  }
+  },
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
 }
 
 export default config
