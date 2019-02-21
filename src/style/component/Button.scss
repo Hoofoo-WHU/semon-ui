@@ -165,7 +165,6 @@
 .button-group {
   display: inline-block;
   >.button{
-    @extend %button-normal;
     margin-right: 0;
     position: relative;
     z-index: 0;
@@ -192,11 +191,5 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
-  }
-  &.small>.button{
-    @extend %button-small;
-  }
-  &.large>.button{
-    @extend %button-large;
   }
 }

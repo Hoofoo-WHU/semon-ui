@@ -1,7 +1,11 @@
 import * as React from 'react'
 import styled from '@/style/component/Button.scss'
-
 import Icon from '@/component/Icon'
+
+interface IButtonGroupContext {
+  size?: IProps['size']
+}
+const ButtonGroupContext = React.createContext<IButtonGroupContext>({})
 
 interface IProps {
   size?: 'small' | 'large'
@@ -18,8 +22,10 @@ interface IState {
   clickAnimating: boolean
 }
 class Button extends React.Component<IProps, IState> {
+  static contextType = ButtonGroupContext
   static displayName = 'Button'
   private animatingTimer: NodeJS.Timeout
+  context: IButtonGroupContext
   readonly state = {
     clickAnimating: false
   }
@@ -27,7 +33,11 @@ class Button extends React.Component<IProps, IState> {
     const classes = []
     this.props.className && classes.push(this.props.className)
     classes.push(styled['button'])
-    this.props.size && classes.push(styled[this.props.size])
+    if (this.context.size) {
+      classes.push(styled[this.context.size])
+    } else {
+      this.props.size && classes.push(styled[this.props.size])
+    }
     this.props.type && classes.push(styled[this.props.type])
     this.props.shape && classes.push(styled[this.props.shape])
     this.props.children || classes.push(styled['icon-only'])
@@ -66,7 +76,6 @@ namespace Button {
     private classes() {
       const classes = [styled['button-group']]
       this.props.className && classes.unshift(this.props.className)
-      this.props.size && classes.push(styled[this.props.size])
       return classes.join(' ')
     }
     render() {
@@ -74,7 +83,11 @@ namespace Button {
       if (children.some((e: JSX.Element) => e.type !== (<Button />).type)) {
         console.warn("ButtonGroup has a child which isn't a Button component")
       }
-      return <div className={this.classes()}>{this.props.children}</div>
+      return (
+        <ButtonGroupContext.Provider value={{ size: this.props.size }}>
+          <div className={this.classes()}>{this.props.children}</div>
+        </ButtonGroupContext.Provider>
+      )
     }
   }
 }
