@@ -8,6 +8,7 @@ interface IProps {
   placeholder?: string
   prefix?: React.ReactNode
   suffix?: React.ReactNode
+  className?: string
   onFocus?: React.FocusEventHandler<HTMLInputElement>
   onBlur?: React.FocusEventHandler<HTMLInputElement>
   onChange?: React.ChangeEventHandler<HTMLInputElement>
@@ -18,14 +19,17 @@ interface IProps {
 class Input extends React.Component<IProps> {
   static displayName = 'Input'
   private classes() {
-    const { size } = this.props
-    const classes = [styled.input]
+    const { size, className } = this.props
+    const classes = []
+    className && classes.push(className)
+    classes.push(styled.input)
     size && classes.push(styled[size])
     return classes.join(' ')
   }
   private wrapperClasses() {
-    const { size } = this.props
+    const { size, className } = this.props
     const classes = [styled.input, styled['input-wrapper-affix-wrapper']]
+    className && classes.unshift(className)
     size && classes.push(styled[size])
     return classes.join(' ')
   }

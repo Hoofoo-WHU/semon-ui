@@ -53,6 +53,7 @@ class App extends React.Component<any, IState> {
         <h2>normal:</h2>
         <Input size='small' placeholder='small size' />
         <Input
+          className='aa123123'
           placeholder='default size'
           value={this.state.value}
           onChange={(e) => { this.setState({ value: e.target.value }) }}
@@ -64,6 +65,7 @@ class App extends React.Component<any, IState> {
         />
         <h2>prefix:</h2>
         <Input
+          className='aa123123'
           placeholder='enter your username'
           prefix={<Icon type='user' style={{ color: 'grey' }} />}
         />
