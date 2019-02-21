@@ -20,6 +20,7 @@ export interface IColProps {
 interface IColState {
 }
 declare class Col extends React.Component<IColProps, IColState> {
+    static displayName: string;
     static contextType: React.Context<IRowContext>;
     readonly context: IRowContext;
     private classes;

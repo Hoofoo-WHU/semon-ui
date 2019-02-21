@@ -1,6 +1,7 @@
 import * as merge from 'webpack-merge'
 import * as webpack from 'webpack'
 import * as CleanWebpackPlugin from 'clean-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import * as path from 'path'
 import base from './webpack.base'
 import * as fs from 'fs'
@@ -35,7 +36,8 @@ const config: webpack.Configuration = merge(base, {
   plugins: [
     new CleanWebpackPlugin(path.resolve('dist'), {
       root: path.resolve('')
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 })
 
