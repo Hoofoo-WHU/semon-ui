@@ -6,6 +6,7 @@ export interface IButtonScss {
   'large': string
   'round': string
   'button-click-animation': string
+  'button-click-animation-2': string
   'icon-only': string
   'primary': string
   'danger': string
