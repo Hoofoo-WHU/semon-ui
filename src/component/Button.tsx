@@ -11,6 +11,7 @@ interface IProps {
   iconRight?: Icon.types
   disabled?: boolean
   htmlType?: string
+  className?: string
   onClick?: React.MouseEventHandler
 }
 interface IState {
@@ -23,7 +24,9 @@ class Button extends React.Component<IProps, IState> {
     clickAnimating: false
   }
   private classes() {
-    const classes = [styled['button']]
+    const classes = []
+    this.props.className && classes.push(this.props.className)
+    classes.push(styled['button'])
     this.props.size && classes.push(styled[this.props.size])
     this.props.type && classes.push(styled[this.props.type])
     this.props.shape && classes.push(styled[this.props.shape])
