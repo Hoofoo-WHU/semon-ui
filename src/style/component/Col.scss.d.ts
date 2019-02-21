@@ -24,6 +24,54 @@ export interface IColScss {
   'span-22': string
   'span-23': string
   'span-24': string
+  'offset-1': string
+  'offset-2': string
+  'offset-3': string
+  'offset-4': string
+  'offset-5': string
+  'offset-6': string
+  'offset-7': string
+  'offset-8': string
+  'offset-9': string
+  'offset-10': string
+  'offset-11': string
+  'offset-12': string
+  'offset-13': string
+  'offset-14': string
+  'offset-15': string
+  'offset-16': string
+  'offset-17': string
+  'offset-18': string
+  'offset-19': string
+  'offset-20': string
+  'offset-21': string
+  'offset-22': string
+  'offset-23': string
+  'offset-24': string
+  'order-1': string
+  'order-2': string
+  'order-3': string
+  'order-4': string
+  'order-5': string
+  'order-6': string
+  'order-7': string
+  'order-8': string
+  'order-9': string
+  'order-10': string
+  'order-11': string
+  'order-12': string
+  'order-13': string
+  'order-14': string
+  'order-15': string
+  'order-16': string
+  'order-17': string
+  'order-18': string
+  'order-19': string
+  'order-20': string
+  'order-21': string
+  'order-22': string
+  'order-23': string
+  'order-24': string
 }
 declare const styles: IColScss;
 export default styles;

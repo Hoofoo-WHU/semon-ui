@@ -4,8 +4,10 @@ import RowContext, { IRowContext } from './RowContext';
 
 type GridNumber = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23' | '24'
 export interface IColProps {
-  className?: string
   span: GridNumber
+  className?: string
+  offset?: GridNumber
+  order?: GridNumber
 }
 class Col extends React.Component<IColProps> {
   static contextType = RowContext
@@ -15,6 +17,8 @@ class Col extends React.Component<IColProps> {
     this.props.className && classes.push(this.props.className)
     classes.push(styled.col)
     classes.push(styled[`span-${this.props.span}`])
+    this.props.offset && classes.push(styled[`offset-${this.props.offset}`])
+    this.props.order && classes.push(styled[`order-${this.props.order}`])
     return classes.join(' ')
   }
   private style(): React.CSSProperties {

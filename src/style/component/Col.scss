@@ -7,7 +7,26 @@
   }
 }
 
+@mixin offset() {
+  @for $i from 1 through 24{
+    &.offset-#{$i}{
+      margin-left: $i / 24 * 100%;
+    }
+  }
+}
+
+@mixin order() {
+  @for $i from 1 through 24{
+    &.order-#{$i}{
+      order: $i;
+    }
+  }
+}
+
+
 .col{
   @include span();
+  @include offset();
+  @include order();
 }
 

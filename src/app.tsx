@@ -33,20 +33,40 @@ class App extends React.Component<any, IState> {
   render() {
     return <React.Fragment>
       <h1>Grid</h1>
+      <h2>span:</h2>
       <Row className="demo-row">
-        <Col className='demo-col' span='12'><div>col-12</div></Col>
-        <Col className='demo-col' span='12'><div>col-12</div></Col>
+        <Col className='demo-col' span='12'><div>span-12</div></Col>
+        <Col className='demo-col' span='12'><div>span-12</div></Col>
       </Row>
       <Row className="demo-row">
-        <Col className='demo-col' span='8'><div>col-8</div></Col>
-        <Col className='demo-col' span='8'><div>col-8</div></Col>
-        <Col className='demo-col' span='8'><div>col-8</div></Col>
+        <Col className='demo-col' span='8'><div>span-8</div></Col>
+        <Col className='demo-col' span='8'><div>span-8</div></Col>
+        <Col className='demo-col' span='8'><div>span-8</div></Col>
       </Row>
       <Row className="demo-row">
-        <Col className='demo-col' span='6'><div>col-6</div></Col>
-        <Col className='demo-col' span='6'><div>col-6</div></Col>
-        <Col className='demo-col' span='6'><div>col-6</div></Col>
-        <Col className='demo-col' span='6'><div>col-6</div></Col>
+        <Col className='demo-col' span='6'><div>span-6</div></Col>
+        <Col className='demo-col' span='6'><div>span-6</div></Col>
+        <Col className='demo-col' span='6'><div>span-6</div></Col>
+        <Col className='demo-col' span='6'><div>span-6</div></Col>
+      </Row>
+      <h2>offset:</h2>
+      <Row className="demo-row">
+        <Col className='demo-col' span='8'><div>span-8</div></Col>
+        <Col className='demo-col' span='8' offset='8'><div>span-8 offset-8</div></Col>
+      </Row>
+      <Row className="demo-row">
+        <Col className='demo-col' span='6' offset='6'><div>span-6 offset-6</div></Col>
+        <Col className='demo-col' span='6' offset='6'><div>span-6 offset-6</div></Col>
+      </Row>
+      <Row className="demo-row">
+        <Col className='demo-col' span='12' offset='6'><div>span-12 offset-6</div></Col>
+      </Row>
+      <h2>order:</h2>
+      <Row className="demo-row">
+        <Col className='demo-col' span='6' order='4'><div>1 order-4</div></Col>
+        <Col className='demo-col' span='6' order='3'><div>2 order-3</div></Col>
+        <Col className='demo-col' span='6' order='2'><div>3 order-2</div></Col>
+        <Col className='demo-col' span='6' order='1'><div>4 order-1</div></Col>
       </Row>
       <section className='demo-input'>
         <h1>Input</h1>
