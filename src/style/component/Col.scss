@@ -1,0 +1,13 @@
+
+@mixin span() {
+  @for $i from 1 through 24{
+    &.span-#{$i}{
+      width: $i / 24 * 100%;
+    }
+  }
+}
+
+.col{
+  @include span();
+}
+

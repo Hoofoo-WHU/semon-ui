@@ -20,7 +20,8 @@
 }
 .input{
   margin: 0;
-    &:not(.input-wrapper-affix-wrapper){
+  width: 100%;
+  &:not(.input-wrapper-affix-wrapper){
     font-family: $font-family;
     box-sizing: border-box;
     @extend %normal;

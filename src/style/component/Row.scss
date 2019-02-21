@@ -1,0 +1,31 @@
+@mixin justify($m){
+  &.justify-#{$m}{
+    justify-content: $m;
+  }
+}
+@mixin flex{
+  &.justify-start{
+    justify-content: flex-start;
+  }
+  &.justify-end{
+    justify-content: flex-end;
+  }
+  &.align-top{
+    align-items: flex-start;
+  }
+  &.align-middle{
+    align-items: center;
+  }
+  &.align-bottom{
+    align-items: flex-end;
+  }
+}
+.row{
+  box-sizing: border-box;
+  display: flex;
+  transition: all .3s;
+  @include flex;
+  @include justify(space-between);
+  @include justify(space-around);
+  @include justify(center);
+}
