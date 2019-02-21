@@ -34,7 +34,7 @@ class App extends React.Component<any, IState> {
     return <React.Fragment>
       <h1>Grid</h1>
       <h2>span:</h2>
-      <Row className="demo-row">
+      <Row className="demo-row" gutter={30}>
         <Col className='demo-col' span='12'><div>span-12</div></Col>
         <Col className='demo-col' span='12'><div>span-12</div></Col>
       </Row>
@@ -73,7 +73,6 @@ class App extends React.Component<any, IState> {
         <h2>normal:</h2>
         <Input size='small' placeholder='small size' />
         <Input
-          className='aa123123'
           placeholder='default size'
           value={this.state.value}
           onChange={(e) => { this.setState({ value: e.target.value }) }}
@@ -85,7 +84,6 @@ class App extends React.Component<any, IState> {
         />
         <h2>prefix:</h2>
         <Input
-          className='aa123123'
           placeholder='enter your username'
           prefix={<Icon type='user' style={{ color: 'grey' }} />}
         />

@@ -69,7 +69,7 @@
 
 .col{
   width: 100%;
-  transition: all .3s;
+  box-sizing: border-box;
   @include span();
   @include offset();
   @include order();

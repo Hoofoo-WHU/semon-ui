@@ -22,6 +22,7 @@ export interface IColProps {
 interface IColState {
 }
 class Col extends React.Component<IColProps, IColState> {
+  static displayName = 'Col'
   static contextType = RowContext
   readonly context: IRowContext
   private classes() {

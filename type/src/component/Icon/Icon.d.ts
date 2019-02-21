@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { types as iconTypes } from './SVG';
 interface IProps {
+    className?: string;
     style?: React.CSSProperties;
     type: iconTypes;
 }

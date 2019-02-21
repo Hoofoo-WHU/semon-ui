@@ -898,6 +898,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/enquire.js@^2.1.2":
+  version "2.1.2"
+  resolved "http://registry.npm.taobao.org/@types/enquire.js/download/@types/enquire.js-2.1.2.tgz#8cfa6196faabb9a7e09aebcb50c4b9a8538e229c"
+  integrity sha1-jPphlvqruafgmuvLUMS5qFOOIpw=
+
 "@types/events@*":
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/@types/events/download/@types/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
@@ -2965,6 +2970,11 @@ enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.0:
     graceful-fs "^4.1.2"
     memory-fs "^0.4.0"
     tapable "^1.0.0"
+
+enquire.js@^2.1.6:
+  version "2.1.6"
+  resolved "http://registry.npm.taobao.org/enquire.js/download/enquire.js-2.1.6.tgz#3e8780c9b8b835084c3f60e166dbc3c2a3c89814"
+  integrity sha1-PoeAybi4NQhMP2DhZtvDwqPImBQ=
 
 ent@~2.2.0:
   version "2.2.0"
