@@ -1,0 +1,21 @@
+.s-row {
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  display: flex; }
+  .s-row.s-justify-start {
+    justify-content: flex-start; }
+  .s-row.s-justify-end {
+    justify-content: flex-end; }
+  .s-row.s-align-top {
+    align-items: flex-start; }
+  .s-row.s-align-middle {
+    align-items: center; }
+  .s-row.s-align-bottom {
+    align-items: flex-end; }
+  .s-row.s-justify-space-between {
+    justify-content: space-between; }
+  .s-row.s-justify-space-around {
+    justify-content: space-around; }
+  .s-row.s-justify-center {
+    justify-content: center; }
+

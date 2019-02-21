@@ -5,6 +5,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import * as path from 'path'
 import base from './webpack.base'
 import * as fs from 'fs'
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const componentEntry = {}
 fs.readdirSync(path.resolve('src/component')).forEach(file => {
@@ -26,7 +27,7 @@ const config: webpack.Configuration = merge(base, {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader?modules&localIdentName=s-[local]',
           'sass-loader'
         ]
@@ -37,7 +38,11 @@ const config: webpack.Configuration = merge(base, {
     new CleanWebpackPlugin(path.resolve('dist'), {
       root: path.resolve('')
     }),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
   ]
 })
 

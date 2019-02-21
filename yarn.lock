@@ -977,6 +977,13 @@
   resolved "http://registry.npm.taobao.org/@types/mime/download/@types/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
   integrity sha1-WnMG42fFObn2VDSZ3o3VGfrDeos=
 
+"@types/mini-css-extract-plugin@^0.2.0":
+  version "0.2.0"
+  resolved "http://registry.npm.taobao.org/@types/mini-css-extract-plugin/download/@types/mini-css-extract-plugin-0.2.0.tgz#afb037dbbd76f6c13803927c2751d194188b5d47"
+  integrity sha1-r7A327129sE4A5J8J1HRlBiLXUc=
+  dependencies:
+    "@types/webpack" "*"
+
 "@types/mocha@^5.2.6":
   version "5.2.6"
   resolved "http://registry.npm.taobao.org/@types/mocha/download/@types/mocha-5.2.6.tgz#b8622d50557dd155e9f2f634b7d68fd38de5e94b"
@@ -1076,6 +1083,13 @@
     "@types/node" "*"
     "@types/unist" "*"
     "@types/vfile-message" "*"
+
+"@types/webpack-bundle-analyzer@^2.13.1":
+  version "2.13.1"
+  resolved "http://registry.npm.taobao.org/@types/webpack-bundle-analyzer/download/@types/webpack-bundle-analyzer-2.13.1.tgz#25154f36585c0abc90f7e58fd3197c83fced789a"
+  integrity sha1-JRVPNlhcCryQ9+WP0xl8g/zteJo=
+  dependencies:
+    "@types/webpack" "*"
 
 "@types/webpack-dev-server@^3.1.1":
   version "3.1.1"
@@ -4886,6 +4900,15 @@ mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
   integrity sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
+
+mini-css-extract-plugin@^0.5.0:
+  version "0.5.0"
+  resolved "http://registry.npm.taobao.org/mini-css-extract-plugin/download/mini-css-extract-plugin-0.5.0.tgz#ac0059b02b9692515a637115b0cc9fed3a35c7b0"
+  integrity sha1-rABZsCuWklFaY3EVsMyf7To1x7A=
+  dependencies:
+    loader-utils "^1.1.0"
+    schema-utils "^1.0.0"
+    webpack-sources "^1.1.0"
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
