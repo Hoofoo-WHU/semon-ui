@@ -58,12 +58,14 @@ class Button extends React.Component<IProps, IState> {
 }
 interface IGroupProps {
   size?: IProps['size']
+  className?: string
 }
 namespace Button {
   export class Group extends React.Component<IGroupProps> {
     static displayName = 'Button.Group'
     private classes() {
       const classes = [styled['button-group']]
+      this.props.className && classes.unshift(this.props.className)
       this.props.size && classes.push(styled[this.props.size])
       return classes.join(' ')
     }
