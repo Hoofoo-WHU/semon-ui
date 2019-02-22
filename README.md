@@ -1,5 +1,5 @@
 <div align="center">
-<img width="80" align="center" src="https://image-1256107964.cos.ap-beijing.myqcloud.com/blog/2019-02-22-logo.png">
+<img width="80" align="center" src="https://image-1256107964.cos.ap-beijing.myqcloud.com/blog/2019-02-22-logo.jpg">
 </div>
 <h1 align="center">Semon UI</h1>
 <div align="center">
