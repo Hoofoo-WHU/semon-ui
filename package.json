@@ -8,11 +8,14 @@
   "types": "type/src/index.d.ts",
   "scripts": {
     "build": "webpack --config build/webpack.prod.ts",
+    "analyze": "webpack --config build/webpack.analyze.ts",
     "dev": "webpack-dev-server --open --config build/webpack.dev.ts",
-    "test": "webpack --config build/webpack.test.ts && karma start --single-run"
+    "test": "webpack --config build/webpack.test.ts && karma start --single-run",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist/*.js",
+    "dist/*.css",
     "type"
   ],
   "devDependencies": {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-import { Button, Icon, Input, Row, Col } from './'
+import { Button, Icon, Input, Row, Col, Layout } from './'
 import '@/style/app.scss'
 
 interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger', value: string }
@@ -32,6 +32,8 @@ class App extends React.Component<any, IState> {
   }
   render() {
     return <React.Fragment>
+      <h1>Layout</h1>
+      <Layout>123<Layout.Sidebar></Layout.Sidebar></Layout>
       <h1>Grid</h1>
       <h2>span:</h2>
       <Row className="demo-row" gutter={{ md: 20, default: 40 }}>

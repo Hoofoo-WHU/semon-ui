@@ -1122,3 +1122,8 @@
     .s-col.s-order-xs-24 {
       order: 24; } }
 
+.s-layout {
+  display: flex;
+  flex: auto;
+  background-color: wheat; }
+

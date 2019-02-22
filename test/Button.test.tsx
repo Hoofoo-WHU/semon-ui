@@ -1,4 +1,4 @@
-import { Button } from '../dist'
+import { Button } from '../src'
 import * as chai from 'chai'
 import * as sinon from 'sinon'
 import * as sinonChai from 'sinon-chai'
