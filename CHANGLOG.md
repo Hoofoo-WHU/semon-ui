@@ -7,10 +7,7 @@
 ## [0.0.2] - 2019-02-22
 [0.0.2]: https://github.com/Hoofoo-WHU/semon-ui-react/releases/tag/0.0.2
 ### 🎉 新增
-- 添加Icon组件
-- 添加Button组件
-- 添加Input组件
-- 添加Grid组件
+- 添加Layout组件
 
 ## [0.0.1] - 2019-02-21
 [0.0.1]: https://github.com/Hoofoo-WHU/semon-ui-react/releases/tag/0.0.1
