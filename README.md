@@ -12,10 +12,10 @@
 
 </div>
 
-## ✨介绍
+## ✨ 介绍
 一套简单的React组件库，目的是练手，不要在项目中使用
 
-## 📦安装
+## 📦 安装
 ```shell
 npm install @semon/semon-ui --save
 ```
@@ -23,7 +23,7 @@ npm install @semon/semon-ui --save
 yarn add @semon/semon-ui
 ```
 
-## 🚀开始使用
+## 🚀 开始使用
 ```jsx
 import { Button } from '@semon/semon-ui'
 ReactDOM.render(<Button />, container)
@@ -37,5 +37,6 @@ import '@semon/semon-ui/dist/index.css'
 import Button from '@semon/semon-ui/dist/Button'
 import '@semon/semon-ui/dist/Button.css'
 ```
-## 🔗链接
-- 📝[更新日志](CHANGELOG.md)
+
+## 🔗 链接
+- [更新日志](CHANGELOG.md)
