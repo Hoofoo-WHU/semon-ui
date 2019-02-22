@@ -1,34 +1,114 @@
-:global{
-  #app{
+:global {
+  #app {
     overflow: hidden;
   }
-  .s-button{
+  .demo-layout {
+    max-width: 600px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 20px;
+    .demo-content {
+      background-color: #108ee9;
+      .content-inner {
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+      }
+    }
+    .demo-header {
+      background-color: #7dbcea;
+      text-align: center;
+    }
+    .demo-sider {
+      background-color: #3ba0e9;
+      .sider-inner {
+        text-align: center;
+        min-width: 200px;
+        line-height: 150px;
+      }
+    }
+    .demo-footer {
+      background-color: #7dbcea;
+      text-align: center;
+    }
+  }
+  .s-button {
     margin-right: 8px;
   }
-  .s-button-group{
+  .s-button-group {
     margin-right: 8px;
   }
-  .demo-input{
-    .s-input{
+  .demo-input {
+    .s-input {
       width: 200px;
       margin-right: 8px;
     }
   }
-  .demo-row{
+  .demo-row {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     margin-bottom: 8px;
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(4.16666667%, #f5f5f5), color-stop(4.16666667%, transparent), color-stop(8.33333333%, transparent), color-stop(8.33333333%, #f5f5f5), color-stop(12.5%, #f5f5f5), color-stop(12.5%, transparent), color-stop(16.66666667%, transparent), color-stop(16.66666667%, #f5f5f5), color-stop(20.83333333%, #f5f5f5), color-stop(20.83333333%, transparent), color-stop(25%, transparent), color-stop(25%, #f5f5f5), color-stop(29.16666667%, #f5f5f5), color-stop(29.16666667%, transparent), color-stop(33.33333333%, transparent), color-stop(33.33333333%, #f5f5f5), color-stop(37.5%, #f5f5f5), color-stop(37.5%, transparent), color-stop(41.66666667%, transparent), color-stop(41.66666667%, #f5f5f5), color-stop(45.83333333%, #f5f5f5), color-stop(45.83333333%, transparent), color-stop(50%, transparent), color-stop(50%, #f5f5f5), color-stop(54.16666667%, #f5f5f5), color-stop(54.16666667%, transparent), color-stop(58.33333333%, transparent), color-stop(58.33333333%, #f5f5f5), color-stop(62.5%, #f5f5f5), color-stop(62.5%, transparent), color-stop(66.66666667%, transparent), color-stop(66.66666667%, #f5f5f5), color-stop(70.83333333%, #f5f5f5), color-stop(70.83333333%, transparent), color-stop(75%, transparent), color-stop(75%, #f5f5f5), color-stop(79.16666667%, #f5f5f5), color-stop(79.16666667%, transparent), color-stop(83.33333333%, transparent), color-stop(83.33333333%, #f5f5f5), color-stop(87.5%, #f5f5f5), color-stop(87.5%, transparent), color-stop(91.66666667%, transparent), color-stop(91.66666667%, #f5f5f5), color-stop(95.83333333%, #f5f5f5), color-stop(95.83333333%, transparent));
-    .demo-col>div{
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(4.16666667%, #f5f5f5),
+      color-stop(4.16666667%, transparent),
+      color-stop(8.33333333%, transparent),
+      color-stop(8.33333333%, #f5f5f5),
+      color-stop(12.5%, #f5f5f5),
+      color-stop(12.5%, transparent),
+      color-stop(16.66666667%, transparent),
+      color-stop(16.66666667%, #f5f5f5),
+      color-stop(20.83333333%, #f5f5f5),
+      color-stop(20.83333333%, transparent),
+      color-stop(25%, transparent),
+      color-stop(25%, #f5f5f5),
+      color-stop(29.16666667%, #f5f5f5),
+      color-stop(29.16666667%, transparent),
+      color-stop(33.33333333%, transparent),
+      color-stop(33.33333333%, #f5f5f5),
+      color-stop(37.5%, #f5f5f5),
+      color-stop(37.5%, transparent),
+      color-stop(41.66666667%, transparent),
+      color-stop(41.66666667%, #f5f5f5),
+      color-stop(45.83333333%, #f5f5f5),
+      color-stop(45.83333333%, transparent),
+      color-stop(50%, transparent),
+      color-stop(50%, #f5f5f5),
+      color-stop(54.16666667%, #f5f5f5),
+      color-stop(54.16666667%, transparent),
+      color-stop(58.33333333%, transparent),
+      color-stop(58.33333333%, #f5f5f5),
+      color-stop(62.5%, #f5f5f5),
+      color-stop(62.5%, transparent),
+      color-stop(66.66666667%, transparent),
+      color-stop(66.66666667%, #f5f5f5),
+      color-stop(70.83333333%, #f5f5f5),
+      color-stop(70.83333333%, transparent),
+      color-stop(75%, transparent),
+      color-stop(75%, #f5f5f5),
+      color-stop(79.16666667%, #f5f5f5),
+      color-stop(79.16666667%, transparent),
+      color-stop(83.33333333%, transparent),
+      color-stop(83.33333333%, #f5f5f5),
+      color-stop(87.5%, #f5f5f5),
+      color-stop(87.5%, transparent),
+      color-stop(91.66666667%, transparent),
+      color-stop(91.66666667%, #f5f5f5),
+      color-stop(95.83333333%, #f5f5f5),
+      color-stop(95.83333333%, transparent)
+    );
+    .demo-col > div {
       min-height: 60px;
       line-height: 60px;
       text-align: center;
     }
-    .demo-col:nth-child(2n+1) >div{
-      background-color: #5ABCF0AA;
+    .demo-col:nth-child(2n + 1) > div {
+      background-color: #5abcf0aa;
     }
-    .demo-col:nth-child(2n) >div{
-      background-color: #00A0E9AA;
+    .demo-col:nth-child(2n) > div {
+      background-color: #00a0e9aa;
     }
   }
 }

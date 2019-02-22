@@ -1,5 +1,25 @@
+.s-layout-content {
+  flex: auto; }
+
+.s-layout-footer {
+  padding: 24px 50px; }
+
+.s-layout-header {
+  height: 64px;
+  line-height: 64px;
+  padding: 0 50px; }
+
+.s-layout-sider {
+  box-sizing: border-box;
+  transition: all 0.3s; }
+
 .s-layout {
   display: flex;
   flex: auto;
-  background-color: wheat; }
+  flex-direction: column;
+  box-sizing: border-box; }
+  .s-layout.s-has-sider {
+    flex-direction: row; }
+  .s-layout > * {
+    box-sizing: border-box; }
 

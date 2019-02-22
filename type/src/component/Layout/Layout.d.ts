@@ -2,10 +2,10 @@ import * as React from 'react';
 import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
-import Sidebar from './Sidebar';
+import Sider from './Sider';
 export interface ILayoutProps {
     className?: string;
-    hasSidebar?: boolean;
+    hasSider?: boolean;
     style?: React.CSSProperties;
 }
 declare class Layout extends React.Component<ILayoutProps> {
@@ -13,10 +13,11 @@ declare class Layout extends React.Component<ILayoutProps> {
     static Content: typeof Content;
     static Footer: typeof Footer;
     static Header: typeof Header;
-    static Sidebar: typeof Sidebar;
-    private hasSidebar;
+    static Sider: typeof Sider;
+    private hasSider;
     private childrenValidate;
     componentDidMount(): void;
+    renderChildren(): any[];
     private classes;
     render(): JSX.Element;
 }

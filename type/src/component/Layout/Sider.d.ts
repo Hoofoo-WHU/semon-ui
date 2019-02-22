@@ -1,13 +1,13 @@
 import * as React from 'react';
-export interface IContentProps {
+export interface ISideBarProps {
     className?: string;
     style?: React.CSSProperties;
 }
-declare class Content extends React.Component<IContentProps> {
+declare class Sider extends React.Component<ISideBarProps> {
     static displayName: string;
     private classes;
     private parentValidate;
     componentWillMount(): void;
     render(): JSX.Element;
 }
-export default Content;
+export default Sider;

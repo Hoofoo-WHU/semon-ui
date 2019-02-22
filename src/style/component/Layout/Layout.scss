@@ -1,5 +1,14 @@
-.layout{
+.layout {
   display: flex;
   flex: auto;
-  background-color: wheat;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  &.has-sider {
+    flex-direction: row;
+  }
+
+  > * {
+    box-sizing: border-box;
+  }
 }

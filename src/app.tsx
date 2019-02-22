@@ -33,7 +33,35 @@ class App extends React.Component<any, IState> {
   render() {
     return <React.Fragment>
       <h1>Layout</h1>
-      <Layout>123<Layout.Sidebar></Layout.Sidebar></Layout>
+      <Layout className="demo-layout">
+        <Layout.Header className='demo-header'>Header</Layout.Header>
+        <Layout.Content className='demo-content'><div className='content-inner'>Content</div></Layout.Content>
+        <Layout.Footer className='demo-footer'>Footer</Layout.Footer>
+      </Layout>
+      <Layout className="demo-layout">
+        <Layout.Header className='demo-header'>Header</Layout.Header>
+        <Layout>
+          <Layout.Sider className="demo-sider"><div className='sider-inner'>Sider</div></Layout.Sider>
+          <Layout.Content className='demo-content'><div className='content-inner'>Content</div></Layout.Content>
+        </Layout>
+        <Layout.Footer className='demo-footer'>Footer</Layout.Footer>
+      </Layout>
+      <Layout className="demo-layout">
+        <Layout.Header className='demo-header'>Header</Layout.Header>
+        <Layout>
+          <Layout.Content className='demo-content'><div className='content-inner'>Content</div></Layout.Content>
+          <Layout.Sider className="demo-sider"><div className='sider-inner'>Sider</div></Layout.Sider>
+        </Layout>
+        <Layout.Footer className='demo-footer'>Footer</Layout.Footer>
+      </Layout>
+      <Layout className="demo-layout">
+        <Layout.Sider className="demo-sider"><div className='sider-inner'>Sider</div></Layout.Sider>
+        <Layout>
+          <Layout.Header className='demo-header'>Header</Layout.Header>
+          <Layout.Content className='demo-content'><div className='content-inner'>Content</div></Layout.Content>
+          <Layout.Footer className='demo-footer'>Footer</Layout.Footer>
+        </Layout>
+      </Layout>
       <h1>Grid</h1>
       <h2>span:</h2>
       <Row className="demo-row" gutter={{ md: 20, default: 40 }}>
