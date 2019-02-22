@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon from '@/component/Icon';
+import Icon from './Icon';
 interface IButtonGroupContext {
     size?: IProps['size'];
     type?: IProps['type'];

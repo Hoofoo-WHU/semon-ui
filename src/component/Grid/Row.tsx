@@ -27,7 +27,6 @@ const responsiveMap = {
   xl: '(min-width: 1200px)'
 }
 interface IRowState {
-  gutter?: number
   screen: object
 }
 class Row extends React.Component<IRowProps, IRowState>{

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@/style/component/Button.scss'
-import Icon from '@/component/Icon'
+import Icon from './Icon'
 
 interface IButtonGroupContext {
   size?: IProps['size']

@@ -14,7 +14,6 @@ export interface IRowProps {
     gutter?: number | IRes;
 }
 interface IRowState {
-    gutter?: number;
     screen: object;
 }
 declare class Row extends React.Component<IRowProps, IRowState> {

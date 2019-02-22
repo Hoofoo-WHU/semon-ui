@@ -1,17 +1,20 @@
 {
-  "name": "semon-ui-react",
-  "version": "0.0.1-dev",
+  "name": "semon-ui-react-test",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "repository": "git@github.com:Hoofoo-WHU/semon-ui-react.git",
   "author": "Hoofoo <wangshuophone@icloud.com>",
   "license": "MIT",
-  "private": true,
   "types": "type/src/index.d.ts",
   "scripts": {
     "build": "webpack --config build/webpack.prod.ts",
     "dev": "webpack-dev-server --open --config build/webpack.dev.ts",
     "test": "webpack --config build/webpack.test.ts && karma start --single-run"
   },
+  "files": [
+    "dist/*.js",
+    "type"
+  ],
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
@@ -60,9 +63,7 @@
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
-    "webpack-merge": "^4.2.1"
-  },
-  "dependencies": {
+    "webpack-merge": "^4.2.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   }

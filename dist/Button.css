@@ -1,62 +1,46 @@
 @charset "UTF-8";
 @keyframes s-button-click-animation {
   0% {
-    border-width: 0;
-  }
+    border-width: 0; }
   100% {
-    border-width: 6px;
-  }
-}
+    border-width: 6px; } }
 
 @keyframes s-button-click-animation-2 {
   0% {
-    opacity: 0.2;
-  }
+    opacity: 0.2; }
   100% {
-    opacity: 0;
-  }
-}
+    opacity: 0; } }
 
 .s-circle.s-button, .s-button.s-round {
-  border-radius: 40px;
-}
+  border-radius: 40px; }
 
 .s-button.s-small {
   height: 24px;
   font-size: 14px;
   padding-left: 7px;
-  padding-right: 7px;
-}
-
-.s-circle.s-button.s-small {
-  width: 24px;
-  padding: 0;
-}
+  padding-right: 7px; }
+  .s-circle.s-button.s-small {
+    width: 24px;
+    padding: 0; }
 
 .s-button {
   height: 32px;
   font-size: 14px;
   padding-left: 12px;
   padding-right: 12px;
-  border-radius: 4px;
-}
-
-.s-circle.s-button {
-  width: 32px;
-  padding: 0;
-}
+  border-radius: 4px; }
+  .s-circle.s-button {
+    width: 32px;
+    padding: 0; }
 
 .s-button.s-large {
   height: 40px;
   font-size: 16px;
   padding-left: 15px;
-  padding-right: 15px;
-}
-
-.s-circle.s-button.s-large {
-  padding: 0;
-  width: 40px;
-}
+  padding-right: 15px; }
+  .s-circle.s-button.s-large {
+    padding: 0;
+    width: 40px; }
 
 .s-button {
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
@@ -74,138 +58,88 @@
   align-items: center;
   margin: 0;
   cursor: pointer;
-  position: relative;
-}
-
-.s-button::after {
-  display: none;
-}
-
-.s-button[data-click-animating]::after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  border: 0 solid #1890ff;
-  animation: s-button-click-animation 0.4s cubic-bezier(0.08, 0.82, 0.17, 1), s-button-click-animation-2 2s cubic-bezier(0.08, 0.82, 0.17, 1);
-}
-
-.s-button.s-icon-only:not(.s-circle) {
-  padding-left: 8px !important;
-  padding-right: 8px !important;
-}
-
-.s-button:focus {
-  outline: none;
-}
-
-.s-button:hover {
-  color: #46a6ff;
-  border-color: #46a6ff;
-}
-
-.s-button:active {
-  color: #1373cc;
-  border-color: #1373cc;
-}
-
-.s-button.s-primary {
-  color: #fff;
-  background-color: #1890ff;
-  border-color: #1890ff;
-}
-
-.s-button.s-primary:hover {
-  background-color: #46a6ff;
-  border-color: #46a6ff;
-}
-
-.s-button.s-primary:active {
-  background-color: #1373cc;
-  border-color: #1373cc;
-}
-
-.s-button.s-danger {
-  color: #f5222d;
-  background-color: whitesmoke;
-}
-
-.s-button.s-danger:hover {
-  color: #fff;
-  background-color: #f5222d;
-  border-color: #f5222d;
-}
-
-.s-button.s-danger:active {
-  background-color: #c41b24;
-  border-color: #c41b24;
-}
-
-.s-button.s-danger::after {
-  border-color: #f5222d;
-}
-
-.s-button.s-dashed {
-  border-style: dashed;
-}
-
-.s-button:disabled {
-  background-color: whitesmoke !important;
-  border-color: #d9d9d9 !important;
-  color: #bfbfbf !important;
-  cursor: not-allowed !important;
-}
-
-.s-button span+.s-icon, .s-button .s-icon+span {
-  margin-left: 8px;
-}
+  position: relative; }
+  .s-button::after {
+    display: none; }
+  .s-button[data-click-animating]::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: 0 solid #1890ff;
+    animation: s-button-click-animation 0.4s cubic-bezier(0.08, 0.82, 0.17, 1), s-button-click-animation-2 2s cubic-bezier(0.08, 0.82, 0.17, 1); }
+  .s-button.s-icon-only:not(.s-circle) {
+    padding-left: 8px !important;
+    padding-right: 8px !important; }
+  .s-button:focus {
+    outline: none; }
+  .s-button:hover {
+    color: #46a6ff;
+    border-color: #46a6ff; }
+  .s-button:active {
+    color: #1373cc;
+    border-color: #1373cc; }
+  .s-button.s-primary {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff; }
+    .s-button.s-primary:hover {
+      background-color: #46a6ff;
+      border-color: #46a6ff; }
+    .s-button.s-primary:active {
+      background-color: #1373cc;
+      border-color: #1373cc; }
+  .s-button.s-danger {
+    color: #f5222d;
+    background-color: whitesmoke; }
+    .s-button.s-danger:hover {
+      color: #fff;
+      background-color: #f5222d;
+      border-color: #f5222d; }
+    .s-button.s-danger:active {
+      background-color: #c41b24;
+      border-color: #c41b24; }
+    .s-button.s-danger::after {
+      border-color: #f5222d; }
+  .s-button.s-dashed {
+    border-style: dashed; }
+  .s-button:disabled {
+    background-color: whitesmoke !important;
+    border-color: #d9d9d9 !important;
+    color: #bfbfbf !important;
+    cursor: not-allowed !important; }
+  .s-button span + .s-icon, .s-button .s-icon + span {
+    margin-left: 8px; }
 
 .s-button-group {
-  display: inline-block;
-}
-
-.s-button-group>.s-button {
-  margin-right: 0;
-  position: relative;
-  z-index: 0;
-}
-
-.s-button-group>.s-button:focus:not(.s-primary) {
-  z-index: 1 !important;
-}
-
-.s-button-group>.s-button:hover:not(.s-primary) {
-  z-index: 2 !important;
-}
-
-.s-button-group>.s-button:not(:first-child) {
-  margin-left: -1px;
-}
-
-.s-button-group>.s-button:not(:first-child).s-primary {
-  border-left-color: #46a6ff;
-}
-
-.s-button-group>.s-button:not(:first-child):not(:last-child) {
-  border-radius: 0;
-}
-
-.s-button-group>.s-button:first-child {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.s-button-group>.s-button:last-child {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
+  display: inline-block; }
+  .s-button-group > .s-button {
+    margin-right: 0;
+    position: relative;
+    z-index: 0; }
+    .s-button-group > .s-button:focus:not(.s-primary) {
+      z-index: 1 !important; }
+    .s-button-group > .s-button:hover:not(.s-primary) {
+      z-index: 2 !important; }
+    .s-button-group > .s-button:not(:first-child) {
+      margin-left: -1px; }
+      .s-button-group > .s-button:not(:first-child).s-primary {
+        border-left-color: #46a6ff; }
+    .s-button-group > .s-button:not(:first-child):not(:last-child) {
+      border-radius: 0; }
+    .s-button-group > .s-button:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    .s-button-group > .s-button:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
 
 .s-icon {
   width: 1em;
   height: 1em;
   display: inline-block;
   fill: currentColor;
-  vertical-align: top;
-}
+  vertical-align: top; }
+
