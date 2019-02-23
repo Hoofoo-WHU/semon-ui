@@ -14,6 +14,8 @@ const _options: IMessageOptions = {
   duration: 3000
 }
 
+const animationTime = 300
+
 const messageRoot = document.createElement('div')
 messageRoot.className = styled.message
 
@@ -43,10 +45,12 @@ function _notice(content: React.ReactNode, durationOrOnClose?: number | Function
   init()
   const notice = document.createElement('div')
   notice.classList.add(styled.notice)
+  notice.style.transition = `all ${animationTime / 1000}s`
   type && notice.classList.add(styled[type])
   const contentFragment = <React.Fragment>{content}</React.Fragment>
   ReactDOM.render(contentFragment, notice)
   messageRoot.append(notice)
+  setTimeout(() => { notice.classList.add(styled.active) }, 50)
 
   let id: NodeJS.Timeout
   if (_duration !== 0) {
@@ -57,10 +61,14 @@ function _notice(content: React.ReactNode, durationOrOnClose?: number | Function
   return remove
 
   function remove(e: HTMLElement) {
+    e.style.height = e.offsetHeight + 'px'
     e.classList.add(styled.hide)
     setTimeout(() => {
-      e.remove()
-    }, 6000)
+      e.classList.add(styled['hide-2'])
+      setTimeout(() => {
+        e.remove()
+      }, animationTime)
+    }, animationTime)
     _onClose && _onClose()
     clearTimeout(id)
   }

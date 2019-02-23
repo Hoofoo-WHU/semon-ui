@@ -1,9 +1,9 @@
 export interface IMessageScss {
   'message': string
   'notice': string
-  'notice-show': string
+  'active': string
   'hide': string
-  'notice-hide': string
+  'hide-2': string
   'success': string
   'error': string
   'warn': string
