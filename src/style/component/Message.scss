@@ -1,0 +1,70 @@
+@import "@/style/variable/font.scss";
+@import "@/style/variable/color.scss";
+
+@keyframes notice-show {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@mixin notice($type) {
+  &.#{$type} {
+    background-color: $color-#{$type}-bg;
+    color: $color-#{$type};
+    border-color: $color-#{$type}-border;
+  }
+}
+.message {
+  font-family: $font-family;
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  pointer-events: none;
+  .notice {
+    margin-top: 8px;
+    animation: notice-show 0.3s;
+    pointer-events: all;
+    &.success,
+    &.error,
+    &.warn,
+    &.info {
+      font-size: $font-size-base;
+      border: 1px solid;
+      border-radius: 4px;
+      padding: 15px 20px;
+      min-width: 200px;
+      display: flex;
+      align-items: center;
+    }
+    &.success {
+      background-color: $color-success-bg;
+      color: $color-success;
+      border-color: $color-success-border;
+    }
+    &.info {
+      background-color: $color-info-bg;
+      color: $color-info;
+      border-color: $color-info-border;
+    }
+    &.warn {
+      background-color: $color-warn-bg;
+      color: $color-warn;
+      border-color: $color-warn-border;
+    }
+    &.error {
+      background-color: $color-error-bg;
+      color: $color-error;
+      border-color: $color-error-border;
+    }
+  }
+}

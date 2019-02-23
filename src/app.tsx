@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-import { Button, Icon, Input, Row, Col, Layout } from './'
+import { Button, Icon, Input, Row, Col, Layout, Message } from './'
 import '@/style/app.scss'
 
 interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger', value: string }
@@ -32,6 +32,11 @@ class App extends React.Component<any, IState> {
   }
   render() {
     return <React.Fragment>
+      <h1>Message</h1>
+      <Button type="primary" onClick={() => Message.success('恭喜你，这是一条成功消息')}>Message</Button>
+      <Button type="primary" onClick={() => Message.info('这是一条消息提示')}>Info</Button>
+      <Button type="primary" onClick={() => Message.warn('警告哦，这是一条警告消息')}>Warn</Button>
+      <Button type="primary" onClick={() => Message.error('错了哦，这是一条错误消息')}>Error</Button>
       <h1>Layout</h1>
       <Layout className="demo-layout">
         <Layout.Header className='demo-header'>Header</Layout.Header>
