@@ -8,6 +8,7 @@ export interface IMessageScss {
   'error': string
   'warn': string
   'info': string
+  'notice-icon': string
 }
 declare const styles: IMessageScss;
 export default styles;

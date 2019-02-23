@@ -33,7 +33,7 @@ class App extends React.Component<any, IState> {
   render() {
     return <React.Fragment>
       <h1>Message</h1>
-      <Button type="primary" onClick={() => Message.success('恭喜你，这是一条成功消息')}>Message</Button>
+      <Button type="primary" onClick={() => Message.success('恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息恭喜你，这是一条成功消息')}>Message</Button>
       <Button type="primary" onClick={() => Message.info('这是一条消息提示')}>Info</Button>
       <Button type="primary" onClick={() => Message.warn('警告哦，这是一条警告消息')}>Warn</Button>
       <Button type="primary" onClick={() => Message.error('错了哦，这是一条错误消息')}>Error</Button>

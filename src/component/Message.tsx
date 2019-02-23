@@ -73,18 +73,7 @@ export type NoticeFunction = {
 function notice(content: React.ReactNode, durationOrOnClose?: number | Function, onClose?: Function) {
   return _notice(content, durationOrOnClose, onClose)
 }
-function success(content: React.ReactNode, durationOrOnClose?: number | Function, onClose?: Function) {
-  return _notice(<React.Fragment><Icon type='check-circle-fill' style={{ marginRight: 10 }} />{content}</React.Fragment>, durationOrOnClose, onClose, 'success')
-}
-function info(content: React.ReactNode, durationOrOnClose?: number | Function, onClose?: Function) {
-  return _notice(<React.Fragment><Icon type='search' style={{ marginRight: 10 }} />{content}</React.Fragment>, durationOrOnClose, onClose, 'info')
-}
-function warn(content: React.ReactNode, durationOrOnClose?: number | Function, onClose?: Function) {
-  return _notice(<React.Fragment><Icon type='search' style={{ marginRight: 10 }} />{content}</React.Fragment>, durationOrOnClose, onClose, 'warn')
-}
-function error(content: React.ReactNode, durationOrOnClose?: number | Function, onClose?: Function) {
-  return _notice(<React.Fragment><Icon type='search' style={{ marginRight: 10 }} />{content}</React.Fragment>, durationOrOnClose, onClose, 'warn')
-}
+
 class Message {
   static readonly notice: NoticeFunction = notice
   static readonly success: NoticeFunction
@@ -111,7 +100,7 @@ const NoticeTypes: { name: string, icon: types }[] = [
 ]
 NoticeTypes.forEach(type => {
   Message[type.name] = function (content: React.ReactNode, durationOrOnClose?: number | Function, onClose?: Function) {
-    return _notice(<React.Fragment><Icon type={type.icon} style={{ marginRight: 10 }} />{content}</React.Fragment>, durationOrOnClose, onClose, type.name as NoticeType)
+    return _notice(<React.Fragment><Icon type={type.icon} className={styled['notice-icon']} />{content}</React.Fragment>, durationOrOnClose, onClose, type.name as NoticeType)
   }
 })
 
