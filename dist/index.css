@@ -76,33 +76,33 @@
   .s-button:focus {
     outline: none; }
   .s-button:hover {
-    color: #46a6ff;
-    border-color: #46a6ff; }
+    color: #40a9ff;
+    border-color: #40a9ff; }
   .s-button:active {
-    color: #1373cc;
-    border-color: #1373cc; }
+    color: #096dd9;
+    border-color: #096dd9; }
   .s-button.s-primary {
     color: #fff;
     background-color: #1890ff;
     border-color: #1890ff; }
     .s-button.s-primary:hover {
-      background-color: #46a6ff;
-      border-color: #46a6ff; }
+      background-color: #40a9ff;
+      border-color: #40a9ff; }
     .s-button.s-primary:active {
-      background-color: #1373cc;
-      border-color: #1373cc; }
+      background-color: #096dd9;
+      border-color: #096dd9; }
   .s-button.s-danger {
-    color: #f5222d;
+    color: #ff4d4f;
     background-color: whitesmoke; }
     .s-button.s-danger:hover {
       color: #fff;
+      background-color: #ff4d4f;
+      border-color: #ff4d4f; }
+    .s-button.s-danger:active {
       background-color: #f5222d;
       border-color: #f5222d; }
-    .s-button.s-danger:active {
-      background-color: #c41b24;
-      border-color: #c41b24; }
     .s-button.s-danger::after {
-      border-color: #f5222d; }
+      border-color: #ff4d4f; }
   .s-button.s-dashed {
     border-style: dashed; }
   .s-button:disabled {
@@ -126,7 +126,7 @@
     .s-button-group > .s-button:not(:first-child) {
       margin-left: -1px; }
       .s-button-group > .s-button:not(:first-child).s-primary {
-        border-left-color: #46a6ff; }
+        border-left-color: #40a9ff; }
     .s-button-group > .s-button:not(:first-child):not(:last-child) {
       border-radius: 0; }
     .s-button-group > .s-button:first-child {
@@ -178,10 +178,10 @@
     .s-input:not(.s-input-wrapper-affix-wrapper).s-large, .s-input-wrapper-affix-wrapper .s-innert-input:not(.s-input-wrapper-affix-wrapper).s-large {
       padding: 6px 11px; }
     .s-input:not(.s-input-wrapper-affix-wrapper):hover, .s-input-wrapper-affix-wrapper .s-innert-input:not(.s-input-wrapper-affix-wrapper):hover {
-      border-color: #46a6ff; }
+      border-color: #40a9ff; }
     .s-input:not(.s-input-wrapper-affix-wrapper):focus, .s-input-wrapper-affix-wrapper .s-innert-input:not(.s-input-wrapper-affix-wrapper):focus {
       outline: none;
-      border-color: #46a6ff;
+      border-color: #40a9ff;
       box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); }
 
 .s-input-wrapper-affix-wrapper {
@@ -1146,4 +1146,63 @@
     flex-direction: row; }
   .s-layout > * {
     box-sizing: border-box; }
+
+@charset "UTF-8";
+.s-message {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  pointer-events: none; }
+  .s-message .s-notice {
+    pointer-events: all;
+    box-sizing: border-box;
+    transform: translate3d(0, -30%, 0);
+    opacity: 0;
+    margin-top: 8px; }
+    .s-message .s-notice.s-active {
+      transform: translate3d(0, 0, 0);
+      opacity: 1; }
+    .s-message .s-notice.s-hide {
+      transform: translate3d(0, -30%, 0) !important;
+      opacity: 0 !important; }
+    .s-message .s-notice.s-hide-2 {
+      height: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      border: 0 !important;
+      margin-top: 0 !important; }
+    .s-message .s-notice.s-success, .s-message .s-notice.s-error, .s-message .s-notice.s-warn, .s-message .s-notice.s-info {
+      font-size: 14px;
+      border: 1px solid;
+      border-radius: 4px;
+      padding: 15px 20px;
+      min-width: 200px;
+      display: flex;
+      align-items: center; }
+      .s-message .s-notice.s-success .s-notice-icon, .s-message .s-notice.s-error .s-notice-icon, .s-message .s-notice.s-warn .s-notice-icon, .s-message .s-notice.s-info .s-notice-icon {
+        margin-right: 10px;
+        flex-shrink: 0; }
+    .s-message .s-notice.s-success {
+      background-color: #f6ffed;
+      color: #52c41a;
+      border-color: #d9f7be; }
+    .s-message .s-notice.s-info {
+      background-color: #fafafa;
+      color: #8c8c8c;
+      border-color: whitesmoke; }
+    .s-message .s-notice.s-warn {
+      background-color: #fffbe6;
+      color: #faad14;
+      border-color: #fff1b8; }
+    .s-message .s-notice.s-error {
+      background-color: #fff1f0;
+      color: #ff4d4f;
+      border-color: #ffccc7; }
 

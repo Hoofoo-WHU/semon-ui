@@ -4,4 +4,5 @@ import Input from './component/Input';
 import Row from './component/Row';
 import Col from './component/Col';
 import Layout from './component/Layout';
-export { Button, Icon, Input, Row, Col, Layout };
+import Message from './component/Message';
+export { Button, Icon, Input, Row, Col, Layout, Message };

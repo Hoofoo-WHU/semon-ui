@@ -8,6 +8,7 @@ interface IProps {
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     className?: string;
+    readOnly?: boolean;
     onFocus?: React.FocusEventHandler<HTMLInputElement>;
     onBlur?: React.FocusEventHandler<HTMLInputElement>;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;

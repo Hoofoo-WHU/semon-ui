@@ -33,10 +33,10 @@
     .s-input:not(.s-input-wrapper-affix-wrapper).s-large, .s-input-wrapper-affix-wrapper .s-innert-input:not(.s-input-wrapper-affix-wrapper).s-large {
       padding: 6px 11px; }
     .s-input:not(.s-input-wrapper-affix-wrapper):hover, .s-input-wrapper-affix-wrapper .s-innert-input:not(.s-input-wrapper-affix-wrapper):hover {
-      border-color: #46a6ff; }
+      border-color: #40a9ff; }
     .s-input:not(.s-input-wrapper-affix-wrapper):focus, .s-input-wrapper-affix-wrapper .s-innert-input:not(.s-input-wrapper-affix-wrapper):focus {
       outline: none;
-      border-color: #46a6ff;
+      border-color: #40a9ff;
       box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); }
 
 .s-input-wrapper-affix-wrapper {
