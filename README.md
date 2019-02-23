@@ -1,15 +1,15 @@
-<div align="center">
+<div style="text-align: center">
 <img width="80" align="center" src="https://image-1256107964.cos.ap-beijing.myqcloud.com/blog/2019-02-22-logo.jpg">
 </div>
-<h1 align="center">Semon UI</h1>
-<div align="center">
+<h1 style="text-align: center">Semon UI</h1>
+<div style="text-align: center">
 
 [![Build Status](https://travis-ci.org/Hoofoo-WHU/semon-ui.svg?branch=master)](https://travis-ci.org/Hoofoo-WHU/semon-ui-react)
 [![License](https://img.shields.io/github/license/hoofoo-WHU/semon-ui.svg?style=flat)](LICENSE)
-![David](https://img.shields.io/david/dev/hoofoo-whu/semon-ui.svg)
-[![install size](https://packagephobia.now.sh/badge?p=@semon/semon-ui@0.0.2)](https://packagephobia.now.sh/result?p=@semon/semon-ui@0.0.2)
-![downloads](https://img.shields.io/npm/v/@semon/semon-ui.svg)
-![version](https://img.shields.io/npm/dt/@semon/semon-ui.svg)
+[![David](https://img.shields.io/david/dev/hoofoo-whu/semon-ui.svg)](https://www.npmjs.com/package/@semon/semon-ui)
+[![install size](https://packagephobia.now.sh/badge?p=@semon/semon-ui)](https://packagephobia.now.sh/result?p=@semon/semon-ui)
+[![downloads](https://img.shields.io/npm/v/@semon/semon-ui.svg)](https://www.npmjs.com/package/@semon/semon-ui)
+[![version](https://img.shields.io/npm/dt/@semon/semon-ui.svg)](https://www.npmjs.com/package/@semon/semon-ui)
 
 </div>
 
