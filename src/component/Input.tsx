@@ -9,6 +9,7 @@ interface IProps {
   prefix?: React.ReactNode
   suffix?: React.ReactNode
   className?: string
+  readOnly?: boolean
   onFocus?: React.FocusEventHandler<HTMLInputElement>
   onBlur?: React.FocusEventHandler<HTMLInputElement>
   onChange?: React.ChangeEventHandler<HTMLInputElement>
@@ -50,13 +51,13 @@ class Input extends React.Component<IProps> {
     }
   }
   render() {
-    const { placeholder, prefix, suffix, defaultValue, value, disabled } = this.props
+    const { placeholder, prefix, suffix, defaultValue, value, disabled, readOnly } = this.props
     const props = {
       placeholder,
       defaultValue,
       value,
       disabled,
-      type: 'text',
+      readOnly,
       onFocus: this.focusHandle.bind(this),
       onBlur: this.blurHandle.bind(this),
       onChange: this.changeHandle.bind(this),

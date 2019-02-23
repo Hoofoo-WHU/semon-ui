@@ -7,7 +7,6 @@ import { types } from './Icon/SVG';
 export interface IMessageOptions {
   container?: Element
   duration?: number
-  maxCount?: number
 }
 type NoticeType = 'info' | 'error' | 'warn' | 'success'
 const _options: IMessageOptions = {
@@ -52,13 +51,16 @@ function _notice(content: React.ReactNode, durationOrOnClose?: number | Function
   let id: NodeJS.Timeout
   if (_duration !== 0) {
     setTimeout(() => {
-      remove()
+      remove(notice)
     }, _duration)
   }
   return remove
 
-  function remove() {
-    notice.remove()
+  function remove(e: HTMLElement) {
+    e.classList.add(styled.hide)
+    setTimeout(() => {
+      e.remove()
+    }, 6000)
     _onClose && _onClose()
     clearTimeout(id)
   }
@@ -89,13 +91,12 @@ class Message {
   static readonly info: NoticeFunction
   static readonly warn: NoticeFunction
   static readonly error: NoticeFunction
-  static readonly config = ({ container, duration, maxCount }: IMessageOptions) => {
+  static readonly config = ({ container, duration }: IMessageOptions) => {
     if (container) {
       distroy()
       _options.container = container
     }
     duration && (_options.duration = duration)
-    maxCount && (_options.maxCount = maxCount)
   }
   static readonly distroy = () => {
     distroy()

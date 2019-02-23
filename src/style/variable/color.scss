@@ -61,8 +61,8 @@ $color-primary: $color-blue-6;
 $color-primary-active: $color-blue-7;
 $color-primary-hover: $color-blue-5;
 
-$color-danger: $color-red-6;
-$color-danger-active: $color-red-7;
+$color-danger: $color-red-5;
+$color-danger-active: $color-red-6;
 $color-danger-bg: $color-grey-2;
 
 $color-disabled-text: $color-grey-5;
@@ -83,6 +83,6 @@ $color-warn: $color-gold-6;
 $color-warn-bg: $color-gold-1;
 $color-warn-border: $color-gold-2;
 
-$color-error: $color-red-6;
+$color-error: $color-danger;
 $color-error-bg: $color-red-1;
 $color-error-border: $color-red-2;
