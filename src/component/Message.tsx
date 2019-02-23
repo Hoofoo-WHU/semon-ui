@@ -55,18 +55,19 @@ function _notice(content: React.ReactNode, durationOrOnClose?: number | Function
   let id: NodeJS.Timeout
   if (_duration !== 0) {
     setTimeout(() => {
-      remove(notice)
+      remove()
     }, _duration)
   }
   return remove
 
-  function remove(e: HTMLElement) {
-    e.style.height = e.offsetHeight + 'px'
-    e.classList.add(styled.hide)
+  function remove() {
+    notice.style.height = notice.offsetHeight + 'px'
+    notice.classList.add(styled.hide)
     setTimeout(() => {
-      e.classList.add(styled['hide-2'])
+      notice.classList.add(styled['hide-2'])
       setTimeout(() => {
-        e.remove()
+        ReactDOM.unmountComponentAtNode(notice)
+        notice.remove()
       }, animationTime)
     }, animationTime)
     _onClose && _onClose()
