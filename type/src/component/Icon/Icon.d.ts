@@ -1,14 +1,24 @@
 import * as React from 'react';
-import { types as iconTypes } from './SVG';
-interface IProps {
+import { IconType } from './SVG';
+import * as PropTypes from 'prop-types';
+import * as AirbnbPropTypes from 'airbnb-prop-types';
+export interface IProps extends React.Props<{}> {
     className?: string;
     style?: React.CSSProperties;
-    type: iconTypes;
+    type: IconType;
+    children?: undefined | null;
 }
 declare class Icon extends React.Component<IProps> {
+    static displayName: string;
+    static propsType: {
+        className: PropTypes.Requireable<string>;
+        style: PropTypes.Requireable<object>;
+        type: PropTypes.Requireable<string>;
+        children: typeof AirbnbPropTypes.explicitNull;
+    };
     render(): JSX.Element;
 }
 declare namespace Icon {
-    type types = iconTypes;
+    type Type = IconType;
 }
 export default Icon;

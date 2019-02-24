@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export declare type types = 'left' | 'right' | 'search' | 'user' | 'check-circle-fill' | 'close-circle-fill' | 'info-circle-fill' | 'warning-circle-fill';
+export declare type IconType = 'left' | 'right' | 'search' | 'user' | 'check-circle-fill' | 'close-circle-fill' | 'info-circle-fill' | 'warning-circle-fill';
 declare const _default: {
     left: (props: import("react").SVGProps<SVGSVGElement>) => import("react").ReactSVGElement;
     right: (props: import("react").SVGProps<SVGSVGElement>) => import("react").ReactSVGElement;

@@ -1,13 +1,10 @@
 import { Button } from '../src'
-import * as chai from 'chai'
-import * as sinon from 'sinon'
-import * as sinonChai from 'sinon-chai'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import * as sinon from 'sinon'
 import { Simulate } from 'react-dom/test-utils'
 
 chai.should()
-chai.use(sinonChai)
 
 let container: Element
 beforeEach(() => {
