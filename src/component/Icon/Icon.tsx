@@ -18,7 +18,7 @@ class Icon extends React.Component<IProps> {
   static propsType = {
     className: PropTypes.string,
     style: PropTypes.object,
-    type: PropTypes.string,
+    type: PropTypes.oneOf(IconType),
     children: AirbnbPropTypes.explicitNull
   }
   render() {
@@ -33,5 +33,7 @@ class Icon extends React.Component<IProps> {
 
 namespace Icon {
   export type Type = IconType
+  export const Type = IconType
 }
+
 export default Icon

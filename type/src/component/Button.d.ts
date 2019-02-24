@@ -10,8 +10,8 @@ interface IProps {
     size?: 'small' | 'large';
     type?: 'primary' | 'dashed' | 'danger';
     shape?: 'round' | 'circle';
-    icon?: Icon.types;
-    iconRight?: Icon.types;
+    icon?: Icon.Type;
+    iconRight?: Icon.Type;
     disabled?: boolean;
     htmlType?: string;
     className?: string;
