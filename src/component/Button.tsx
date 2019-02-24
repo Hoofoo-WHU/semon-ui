@@ -25,12 +25,12 @@ interface IButtonGroupContext {
   disabled?: boolean
 }
 
-export interface IButtonProps {
+interface IButtonProps {
   size?: ButtonSize
   type?: ButtonType
   shape?: ButtonShape
-  icon?: Icon.Type
-  iconRight?: Icon.Type
+  icon?: Icon.Props['type']
+  iconRight?: Icon.Props['type']
   disabled?: boolean
   htmlType?: ButtonHtmlType
   className?: string
@@ -99,7 +99,7 @@ class Button extends React.Component<IButtonProps, IState> {
   }
 }
 
-export interface IButtonGroupProps extends React.Props<{}> {
+interface IButtonGroupProps extends React.Props<{}> {
   size?: ButtonSize
   type?: ButtonType
   shape?: ButtonShape
@@ -135,6 +135,10 @@ class _Group extends React.Component<IButtonGroupProps> {
 
 namespace Button {
   export const Group = _Group
+  export interface Props extends IButtonProps { }
+  namespace Group {
+    export interface Props extends IButtonGroupProps { }
+  }
 }
 
 export default Button
