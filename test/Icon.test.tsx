@@ -6,7 +6,7 @@ import * as ReactDOM from 'react-dom'
 
 chai.should()
 
-let container: Element
+let container: HTMLDivElement
 
 beforeEach(() => {
   container = document.createElement('div')

@@ -5,7 +5,8 @@ import * as webpack from 'webpack'
 import webpackConfig from './build/webpack.test'
 
 interface KarmaWebpackConfigOption extends Karma.ConfigOptions {
-  webpack: webpack.Configuration
+  webpack: webpack.Configuration,
+  mochaReporter: any
 }
 interface KarmaWebpackConfig extends Karma.Config {
   set: (config: KarmaWebpackConfigOption) => void
@@ -19,7 +20,7 @@ export default (config: KarmaWebpackConfig) => {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai', 'sinon-chai'],
+    frameworks: ['mocha', 'chai', 'sinon-chai', 'source-map-support'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -37,7 +38,22 @@ export default (config: KarmaWebpackConfig) => {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha'],
+
+    mochaReporter: {
+      colors: {
+        success: 'green',
+        info: 'blue',
+        warning: 'yellow',
+        error: 'red'
+      },
+      symbols: {
+        success: '✨ ',
+        info: '✉️ ',
+        warning: '⚠️ ',
+        error: '❌ '
+      }
+    },
 
     // web server port
     port: 9876,
