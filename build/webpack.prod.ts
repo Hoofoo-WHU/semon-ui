@@ -28,10 +28,15 @@ const config: webpack.Configuration = merge(base, {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader?modules&localIdentName=s-[local]',
+          'postcss-loader',
           'sass-loader'
         ]
       }
     ]
+  },
+  externals: {
+    "react": 'react',
+    'react-dom': 'react-dom'
   },
   plugins: [
     new CleanWebpackPlugin(path.resolve('dist'), {
