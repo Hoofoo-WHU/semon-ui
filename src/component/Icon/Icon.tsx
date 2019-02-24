@@ -5,15 +5,7 @@ import * as PropTypes from 'prop-types'
 import * as AirbnbPropTypes from 'airbnb-prop-types'
 import classMerge from '../../until/class-merge'
 
-interface IIconProps extends React.Props<{}> {
-  className?: string
-  style?: React.CSSProperties
-  type: IconType
-  spin?: boolean
-  children?: undefined | null
-}
-
-class Icon extends React.Component<IIconProps> {
+class Icon extends React.Component<Icon.Props> {
   static displayName = 'Icon'
   static propsType = {
     className: PropTypes.string,
@@ -33,7 +25,13 @@ class Icon extends React.Component<IIconProps> {
 
 namespace Icon {
   export const Type = IconType
-  export interface Props extends IIconProps { }
+  export interface Props extends React.Props<{}> {
+    className?: string
+    style?: React.CSSProperties
+    type: IconType
+    spin?: boolean
+    children?: undefined | null
+  }
 }
 
 export default Icon

@@ -25,26 +25,13 @@ interface IButtonGroupContext {
   disabled?: boolean
 }
 
-interface IButtonProps {
-  size?: ButtonSize
-  type?: ButtonType
-  shape?: ButtonShape
-  icon?: Icon.Props['type']
-  iconRight?: Icon.Props['type']
-  disabled?: boolean
-  htmlType?: ButtonHtmlType
-  className?: string
-  style?: React.CSSProperties
-  onClick?: React.MouseEventHandler
-}
+const ButtonGroupContext = React.createContext<IButtonGroupContext>({})
 
-interface IState {
+interface State {
   clickAnimating: boolean
 }
 
-const ButtonGroupContext = React.createContext<IButtonGroupContext>({})
-
-class Button extends React.Component<IButtonProps, IState> {
+class Button extends React.Component<Button.Props, State> {
   static displayName = 'Button'
   static contextType = ButtonGroupContext
   static propTypes = {
@@ -99,45 +86,55 @@ class Button extends React.Component<IButtonProps, IState> {
   }
 }
 
-interface IButtonGroupProps extends React.Props<{}> {
-  size?: ButtonSize
-  type?: ButtonType
-  shape?: ButtonShape
-  disabled?: boolean
-  className?: string
-  style?: React.CSSProperties
-}
-
-class _Group extends React.Component<IButtonGroupProps> {
-  static displayName = 'Button.Group'
-  static propTypes: object = {
-    size: PropTypes.oneOf(ButtonSize),
-    type: PropTypes.oneOf(ButtonType),
-    shape: PropTypes.oneOf(ButtonShape),
-    disabled: PropTypes.bool,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    children: childrenOfType(Button)
-  }
-  render() {
-    const { type, size, shape, disabled, className, children, style } = this.props
-    const classes = classMerge(...[
-      className,
-      styled['button-group']
-    ])
-    return (
-      <ButtonGroupContext.Provider value={{ size, type, shape, disabled }}>
-        <div className={classes} style={style}>{children}</div>
-      </ButtonGroupContext.Provider>
-    )
-  }
-}
-
 namespace Button {
-  export const Group = _Group
-  export interface Props extends IButtonProps { }
-  namespace Group {
-    export interface Props extends IButtonGroupProps { }
+
+  export interface Props {
+    size?: ButtonSize
+    type?: ButtonType
+    shape?: ButtonShape
+    icon?: Icon.Props['type']
+    iconRight?: Icon.Props['type']
+    disabled?: boolean
+    htmlType?: ButtonHtmlType
+    className?: string
+    style?: React.CSSProperties
+    onClick?: React.MouseEventHandler
+  }
+
+  export class Group extends React.Component<Group.Props> {
+    static displayName = 'Button.Group'
+    static propTypes: object = {
+      size: PropTypes.oneOf(ButtonSize),
+      type: PropTypes.oneOf(ButtonType),
+      shape: PropTypes.oneOf(ButtonShape),
+      disabled: PropTypes.bool,
+      className: PropTypes.string,
+      style: PropTypes.object,
+      children: childrenOfType(Button)
+    }
+    render() {
+      const { type, size, shape, disabled, className, children, style } = this.props
+      const classes = classMerge(...[
+        className,
+        styled['button-group']
+      ])
+      return (
+        <ButtonGroupContext.Provider value={{ size, type, shape, disabled }}>
+          <div className={classes} style={style}>{children}</div>
+        </ButtonGroupContext.Provider>
+      )
+    }
+  }
+
+  export namespace Group {
+    export interface Props extends React.Props<{}> {
+      size?: ButtonSize
+      type?: ButtonType
+      shape?: ButtonShape
+      disabled?: boolean
+      className?: string
+      style?: React.CSSProperties
+    }
   }
 }
 
