@@ -9,6 +9,7 @@ export interface IProps extends React.Props<{}> {
   className?: string
   style?: React.CSSProperties
   type: IconType
+  spin?: boolean
   children?: undefined | null
 }
 
@@ -21,9 +22,9 @@ class Icon extends React.Component<IProps> {
     children: AirbnbPropTypes.explicitNull
   }
   render() {
-    const { className, style, type } = this.props
+    const { className, style, type, spin } = this.props
     const SvgIcon = SVG[type]
-    const classes = classMerge(className, styled.icon)
+    const classes = classMerge(className, styled.icon, spin && styled.spin)
     return (
       <SvgIcon className={classes} style={style} viewBox='64 64 896 896'></SvgIcon>
     )
