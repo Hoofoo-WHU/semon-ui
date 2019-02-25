@@ -7,8 +7,9 @@
 [![Build Status](https://travis-ci.org/Hoofoo-WHU/semon-ui.svg?branch=master)](https://travis-ci.org/Hoofoo-WHU/semon-ui-react)
 [![Codecov](https://img.shields.io/codecov/c/github/hoofoo-WHU/semon-ui.svg)](https://codecov.io/gh/Hoofoo-WHU/semon-ui)
 [![License](https://img.shields.io/github/license/hoofoo-WHU/semon-ui.svg?style=flat)](LICENSE)
-[![David](https://img.shields.io/david/dev/hoofoo-whu/semon-ui.svg)](https://www.npmjs.com/package/@semon/semon-ui)
 [![install size](https://packagephobia.now.sh/badge?p=@semon/semon-ui)](https://packagephobia.now.sh/result?p=@semon/semon-ui)
+[![gzip:js](http://img.badgesize.io/https://unpkg.com/@semon/semon-ui/dist/index.js?compression=gzip&label=gzip:%20js)](https://www.npmjs.com/package/@semon/semon-ui)
+[![gzip:css](http://img.badgesize.io/https://unpkg.com/@semon/semon-ui/dist/index.css?compression=gzip&label=gzip:%20css)](https://www.npmjs.com/package/@semon/semon-ui)
 [![downloads](https://img.shields.io/npm/v/@semon/semon-ui.svg)](https://www.npmjs.com/package/@semon/semon-ui)
 [![version](https://img.shields.io/npm/dt/@semon/semon-ui.svg)](https://www.npmjs.com/package/@semon/semon-ui)
 
