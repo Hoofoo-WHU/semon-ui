@@ -69,10 +69,10 @@ class Col extends React.Component<Col.Props> {
     return classes.join(' ')
   }
   private style(): React.CSSProperties {
-    return {
+    return Object.assign({
       paddingLeft: this.context.gutter ? this.context.gutter / 2 : undefined,
       paddingRight: this.context.gutter ? this.context.gutter / 2 : undefined
-    }
+    }, this.props.style)
   }
   private checkParent() {
     if (!this.props['__PARENT__']) {

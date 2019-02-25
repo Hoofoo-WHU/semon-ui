@@ -57,7 +57,10 @@ export default (config: KarmaWebpackConfig) => {
     },
 
     coverageReporter: {
-      type: 'lcovonly',
+      reporters: [
+        { type: 'lcovonly' },
+        { type: 'text' }
+      ],
       check: {
         global: {
           excludes: [

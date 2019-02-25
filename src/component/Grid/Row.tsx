@@ -14,14 +14,15 @@ type RowJustify = typeof RowJustify[number]
 const RowAlign = tuple('top', 'middle', 'bottom')
 type RowAlign = typeof RowAlign[number]
 
-const responsiveArray = ['xl', 'lg', 'md', 'sm', 'xs']
+const responsiveArray = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs']
 
 const responsiveMap = {
-  xs: '(max-width: 575px)',
+  xs: '(min-width: 0px)',
   sm: '(min-width: 576px)',
   md: '(min-width: 768px)',
   lg: '(min-width: 992px)',
-  xl: '(min-width: 1200px)'
+  xl: '(min-width: 1200px)',
+  xxl: '(min-width: 1600px)'
 }
 
 interface IRowState {
@@ -39,12 +40,12 @@ class Row extends React.Component<Row.Props, IRowState>{
     gutter: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.shape({
-        default: PropTypes.number.isRequired,
         xs: PropTypes.number,
         sm: PropTypes.number,
         md: PropTypes.number,
         lg: PropTypes.number,
         xl: PropTypes.number,
+        xxl: PropTypes.number
       })
     ])
   }
@@ -62,7 +63,7 @@ class Row extends React.Component<Row.Props, IRowState>{
     if (typeof this.props.gutter !== 'object') {
       return this.props.gutter
     }
-    let gutter = this.props.gutter.default
+    let gutter = this.props.gutter.xxl
     responsiveArray.some(v => {
       this.props.gutter[v] && (gutter = this.props.gutter[v])
       return this.state.screen[v]
@@ -155,7 +156,7 @@ namespace Row {
       md?: number
       lg?: number
       xl?: number
-      default: number
+      xxl?: number
     }
   }
 }

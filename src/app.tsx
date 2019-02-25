@@ -69,11 +69,11 @@ class App extends React.Component<any, IState> {
       </Layout>
       <h1>Grid</h1>
       <h2>span:</h2>
-      <Row className="demo-row" gutter={{ md: 20, default: 40 }}>
+      <Row className="demo-row" gutter={{ md: 20, xxl: 40 }}>
         <Col className='demo-col' span='12'><div>span-12</div></Col>
         <Col className='demo-col' span='12'><div>span-12</div></Col>
       </Row>
-      <Row className="demo-row" gutter={{ md: 40, default: 20 }}>
+      <Row className="demo-row" gutter={{ md: 40, xxl: 20 }}>
         <Col className='demo-col' span='12'><div>span-12</div></Col>
         <Col className='demo-col' span='12'><div>span-12</div></Col>
       </Row>
