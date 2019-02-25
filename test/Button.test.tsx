@@ -49,10 +49,13 @@ describe('Button', () => {
     clickHandle.should.has.not.been.called
   })
 
-  it('可以设置htmlType', () => {
-    const type = 'submit'
-    ReactDOM.render(<Button htmlType={type}></Button>, container)
-    container.querySelector(`.${styled.button}`).getAttribute('type').should.equal(type)
+  describe('htmlType', () => {
+    Button.HtmlType.forEach(type => {
+      it(`可以设置${type}`, () => {
+        ReactDOM.render(<Button htmlType={type}></Button>, container)
+        container.querySelector(`.${styled.button}`).getAttribute('type').should.equal(type)
+      })
+    })
   })
 
   describe('icon', () => {
@@ -67,39 +70,29 @@ describe('Button', () => {
   })
 
   describe('shape', () => {
-    it('可以设置shape=circle', () => {
-      ReactDOM.render(<Button shape='circle'></Button>, container)
-      container.querySelector(`.${styled.button}.${styled.circle}`).should.exist
-    })
-    it('可以设置shape=round', () => {
-      ReactDOM.render(<Button shape='round'></Button>, container)
-      container.querySelector(`.${styled.button}.${styled.round}`).should.exist
+    Button.Shape.forEach(shape => {
+      it(`可以设置${shape}`, () => {
+        ReactDOM.render(<Button shape={shape}></Button>, container)
+        container.querySelector(`.${styled.button}.${styled[shape]}`).should.exist
+      })
     })
   })
 
   describe('type', () => {
-    it('可以设置primary', () => {
-      ReactDOM.render(<Button type='primary'></Button>, container)
-      container.querySelector(`.${styled.button}.${styled.primary}`).should.exist
-    })
-    it('可以设置dashed', () => {
-      ReactDOM.render(<Button type='dashed'></Button>, container)
-      container.querySelector(`.${styled.button}.${styled.dashed}`).should.exist
-    })
-    it('可以设置danger', () => {
-      ReactDOM.render(<Button type='danger'></Button>, container)
-      container.querySelector(`.${styled.button}.${styled.danger}`).should.exist
+    Button.Type.forEach(type => {
+      it(`可以设置${type}`, () => {
+        ReactDOM.render(<Button type={type}></Button>, container)
+        container.querySelector(`.${styled.button}.${styled[type]}`).should.exist
+      })
     })
   })
 
   describe('size', () => {
-    it('可以设置small', () => {
-      ReactDOM.render(<Button size='small'></Button>, container)
-      container.querySelector(`.${styled.button}.${styled.small}`).should.exist
-    })
-    it('可以设置large', () => {
-      ReactDOM.render(<Button size='large'></Button>, container)
-      container.querySelector(`.${styled.button}.${styled.large}`).should.exist
+    Button.Size.forEach(size => {
+      it(`可以设${size}`, () => {
+        ReactDOM.render(<Button size={size}></Button>, container)
+        container.querySelector(`.${styled.button}.${styled[size]}`).should.exist
+      })
     })
   })
 
@@ -123,21 +116,34 @@ describe('Button.Group', () => {
     group.style.color.should.equal(style.color)
   })
 
-  it('可以设置size', () => {
-    const element = <Button.Group size='small'><Button></Button></Button.Group>
-    ReactDOM.render(element, container)
-    container.querySelector(`.${styled['button-group']} .${styled.button}`).classList.contains(styled.small).should.be.ok
+  describe('size', () => {
+    Button.Group.Size.forEach(size => {
+      it(`可以设置${size}`, () => {
+        const element = <Button.Group size={size}><Button></Button></Button.Group>
+        ReactDOM.render(element, container)
+        container.querySelector(`.${styled['button-group']} .${styled.button}`).classList.contains(styled[size]).should.be.ok
+      })
+    })
   })
 
-  it('可以设置type', () => {
-    const element = <Button.Group type='primary'><Button></Button></Button.Group>
-    ReactDOM.render(element, container)
-    container.querySelector(`.${styled['button-group']} .${styled.button}`).classList.contains(styled.primary).should.be.ok
+  describe('type', () => {
+    Button.Group.Type.forEach(type => {
+      it(`可以设置${type}`, () => {
+        const element = <Button.Group type={type}><Button></Button></Button.Group>
+        ReactDOM.render(element, container)
+        container.querySelector(`.${styled['button-group']} .${styled.button}`).classList.contains(styled[type]).should.be.ok
+      })
+    })
   })
 
-  it('可以设置shape', () => {
-    const element = <Button.Group shape='round'><Button></Button></Button.Group>
-    ReactDOM.render(element, container)
-    container.querySelector(`.${styled['button-group']} .${styled.button}`).classList.contains(styled.round).should.be.ok
+  describe('shape', () => {
+    Button.Group.Shape.forEach(shape => {
+      it(`可以设置${shape}`, () => {
+        const element = <Button.Group shape={shape}><Button></Button></Button.Group>
+        ReactDOM.render(element, container)
+        container.querySelector(`.${styled['button-group']} .${styled.button}`).classList.contains(styled[shape]).should.be.ok
+      })
+    })
   })
+
 })

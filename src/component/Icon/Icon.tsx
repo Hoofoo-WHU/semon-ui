@@ -18,7 +18,7 @@ class Icon extends React.Component<Icon.Props> {
     const SvgIcon = SVG[type]
     const classes = classMerge(className, styled.icon, spin && styled.spin)
     return (
-      <SvgIcon className={classes} style={style} viewBox='64 64 896 896'></SvgIcon>
+      <SvgIcon className={classes} style={style} data-type={type} viewBox='64 64 896 896'></SvgIcon>
     )
   }
 }

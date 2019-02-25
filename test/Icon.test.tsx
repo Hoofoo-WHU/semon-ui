@@ -43,4 +43,14 @@ describe('Icon', () => {
     container.querySelector(iconClass).classList.contains(styled.spin).should.be.ok
   })
 
+  describe('type', () => {
+    Icon.Type.forEach(type => {
+      it(`可以设置${type}`, () => {
+        ReactDOM.render(<Icon type={type} />, container)
+        container.querySelector(iconClass).getAttribute('data-type').should.equal(type)
+
+      })
+    })
+  })
+
 })

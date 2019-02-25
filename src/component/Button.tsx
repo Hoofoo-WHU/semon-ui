@@ -18,6 +18,8 @@ type ButtonShape = typeof ButtonShape[number]
 const ButtonHtmlType = tuple('submit', 'reset', 'text')
 type ButtonHtmlType = typeof ButtonHtmlType[number]
 
+const IconType = Icon.Type
+
 interface IButtonGroupContext {
   size?: ButtonSize
   type?: ButtonType
@@ -87,7 +89,11 @@ class Button extends React.Component<Button.Props, State> {
 }
 
 namespace Button {
-
+  export const Size = ButtonSize
+  export const Type = ButtonType
+  export const Shape = ButtonShape
+  export const Icon = IconType
+  export const HtmlType = ButtonHtmlType
   export interface Props {
     size?: ButtonSize
     type?: ButtonType
@@ -127,6 +133,9 @@ namespace Button {
   }
 
   export namespace Group {
+    export const Size = ButtonSize
+    export const Type = ButtonType
+    export const Shape = ButtonShape
     export interface Props extends React.Props<{}> {
       size?: ButtonSize
       type?: ButtonType
