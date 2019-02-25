@@ -1,7 +1,6 @@
 import { Col, Row } from '../src'
 import * as Mock from 'mockjs'
 import * as React from 'react'
-import * as sinon from 'sinon'
 import * as ReactDOM from 'react-dom'
 import styledcol from '@/style/component/Col.scss'
 import styledrow from '@/style/component/Row.scss'
