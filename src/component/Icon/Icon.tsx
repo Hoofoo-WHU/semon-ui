@@ -11,6 +11,7 @@ class Icon extends React.Component<Icon.Props> {
     className: PropTypes.string,
     style: PropTypes.object,
     type: PropTypes.oneOf(IconType),
+    spin: PropTypes.bool,
     children: AirbnbPropTypes.explicitNull
   }
   render() {
