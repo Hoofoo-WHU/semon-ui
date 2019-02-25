@@ -1,26 +1,26 @@
-@mixin justify($m){
-  &.justify-#{$m}{
+@mixin justify($m) {
+  &.justify-#{$m} {
     justify-content: $m;
   }
 }
-@mixin flex{
-  &.justify-start{
+@mixin flex {
+  &.justify-start {
     justify-content: flex-start;
   }
-  &.justify-end{
+  &.justify-end {
     justify-content: flex-end;
   }
-  &.align-top{
+  &.align-top {
     align-items: flex-start;
   }
-  &.align-middle{
+  &.align-middle {
     align-items: center;
   }
-  &.align-bottom{
+  &.align-bottom {
     align-items: flex-end;
   }
 }
-.row{
+.row {
   box-sizing: border-box;
   flex-wrap: wrap;
   display: flex;

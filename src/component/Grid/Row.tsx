@@ -1,24 +1,21 @@
 import * as React from 'react'
 import * as enquire from 'enquire.js'
 import styled from '@/style/component/Row.scss'
+import * as PropTypes from 'prop-types'
+import * as AirbnbPropTypes from 'airbnb-prop-types'
+import classMerge from '../../until/class-merge'
+import { tuple } from '../../until/type'
+import Col from './Col'
 import RowContext from './RowContext'
 
-interface IRes {
-  xs?: number
-  sm?: number
-  md?: number
-  lg?: number
-  xl?: number
-  default: number
-}
-export interface IRowProps {
-  className?: string
-  justify?: 'start' | 'end' | 'space-between' | 'space-around' | 'center'
-  align?: 'top' | 'middle' | 'bottom'
-  gutter?: number | IRes
-}
+const RowJustify = tuple('start', 'end', 'space-between', 'space-around', 'center')
+type RowJustify = typeof RowJustify[number]
+
+const RowAlign = tuple('top', 'middle', 'bottom')
+type RowAlign = typeof RowAlign[number]
 
 const responsiveArray = ['xl', 'lg', 'md', 'sm', 'xs']
+
 const responsiveMap = {
   xs: '(max-width: 575px)',
   sm: '(min-width: 576px)',
@@ -26,22 +23,41 @@ const responsiveMap = {
   lg: '(min-width: 992px)',
   xl: '(min-width: 1200px)'
 }
+
 interface IRowState {
   screen: object
 }
-class Row extends React.Component<IRowProps, IRowState>{
+
+class Row extends React.Component<Row.Props, IRowState>{
   static displayName = 'Row'
+
+  static propTypes: any = {
+    className: PropTypes.string,
+    justify: PropTypes.oneOf(RowJustify),
+    align: PropTypes.oneOf(RowAlign),
+    children: AirbnbPropTypes.childrenOfType(Col),
+    gutter: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.shape({
+        default: PropTypes.number.isRequired,
+        xs: PropTypes.number,
+        sm: PropTypes.number,
+        md: PropTypes.number,
+        lg: PropTypes.number,
+        xl: PropTypes.number,
+      })
+    ])
+  }
+
+  static defaultProps: Row.Props = {
+    justify: 'start',
+    align: 'top',
+  }
+
   readonly state = {
     screen: {}
   }
-  private classes() {
-    const classes = []
-    this.props.className && classes.push(this.props.className)
-    classes.push(styled.row)
-    classes.push(styled[`justify-${this.props.justify || 'start'}`])
-    classes.push(styled[`align-${this.props.align || 'top'}`])
-    return classes.join(' ')
-  }
+
   private getGutter() {
     if (typeof this.props.gutter !== 'object') {
       return this.props.gutter
@@ -53,13 +69,15 @@ class Row extends React.Component<IRowProps, IRowState>{
     })
     return gutter
   }
+
   private style(): React.CSSProperties {
     const gutter = this.getGutter()
-    return {
+    return Object.assign({
       marginLeft: gutter ? -gutter / 2 : undefined,
       marginRight: gutter ? -gutter / 2 : undefined
-    }
+    }, this.props.style)
   }
+
   componentDidMount() {
     Reflect.ownKeys(responsiveMap).forEach(v => {
       enquire.register(responsiveMap[v], {
@@ -89,19 +107,56 @@ class Row extends React.Component<IRowProps, IRowState>{
       })
     })
   }
+
   componentWillUnmount() {
     Object.keys(responsiveMap).forEach(v =>
       enquire.unregister(responsiveMap[v])
     )
   }
+
+  renderChildren() {
+    return React.Children.map(this.props.children, (child: any) => {
+      if (child.type === (<Col />).type) {
+        return React.cloneElement(child, { __PARENT__: true })
+      }
+      return child
+    })
+  }
+
   render() {
+    const { className, justify, align } = this.props
+    const classes = classMerge(
+      className,
+      styled.row,
+      styled[`justify-${justify}`],
+      styled[`align-${align}`]
+    )
     return (
       <RowContext.Provider value={{ gutter: this.getGutter() }}>
-        <div className={this.classes()} style={this.style()}>
-          {this.props.children}
+        <div className={classes} style={this.style()}>
+          {this.renderChildren()}
         </div>
       </RowContext.Provider>
     )
+  }
+}
+
+namespace Row {
+  export const Justify = RowJustify
+  export const Align = RowAlign
+  export interface Props extends React.Props<{}> {
+    className?: string
+    justify?: RowJustify
+    align?: RowAlign
+    style?: React.CSSProperties
+    gutter?: number | {
+      xs?: number
+      sm?: number
+      md?: number
+      lg?: number
+      xl?: number
+      default: number
+    }
   }
 }
 

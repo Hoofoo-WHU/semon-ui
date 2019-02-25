@@ -1,32 +1,57 @@
 import * as React from 'react'
 import styled from '@/style/component/Col.scss'
-import RowContext, { IRowContext } from './RowContext';
+import RowContext, { IRowContext } from './RowContext'
+import { tuple } from '../../until/type'
+import * as PropTypes from 'prop-types'
 
-type GridNumber = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23' | '24'
-interface IRes {
-  span?: GridNumber
-  offset?: GridNumber
-  order?: GridNumber
+const GridSize = tuple('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24')
+type GridSize = typeof GridSize[number]
+
+const TypeGridSize = PropTypes.oneOf(GridSize)
+const TypeRes = PropTypes.shape({
+  span: PropTypes.oneOf(GridSize),
+  offset: PropTypes.oneOf(GridSize),
+  order: PropTypes.oneOf(GridSize)
+})
+const propTypes = {
+  span: TypeGridSize,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  offset: TypeGridSize,
+  order: TypeGridSize,
+  xs: PropTypes.oneOfType([
+    TypeGridSize,
+    TypeRes
+  ]),
+  sm: PropTypes.oneOfType([
+    TypeGridSize,
+    TypeRes
+  ]),
+  md: PropTypes.oneOfType([
+    TypeGridSize,
+    TypeRes
+  ]),
+  lg: PropTypes.oneOfType([
+    TypeGridSize,
+    TypeRes
+  ]),
+  xl: PropTypes.oneOfType([
+    TypeGridSize,
+    TypeRes
+  ])
 }
-export interface IColProps {
-  span: GridNumber
-  className?: string
-  offset?: GridNumber
-  order?: GridNumber
-  xs?: IRes | GridNumber
-  sm?: IRes | GridNumber
-  md?: IRes | GridNumber
-  lg?: IRes | GridNumber
-  xl?: IRes | GridNumber
-}
-interface IColState {
-}
-class Col extends React.Component<IColProps, IColState> {
+
+class Col extends React.Component<Col.Props> {
   static displayName = 'Col'
   static contextType = RowContext
+  static defaultProps: Col.Props = {
+    span: '24'
+  }
+  static propTypes = propTypes
+
   readonly context: IRowContext
   private classes() {
-    function push(size: IRes | GridNumber, sizeName?: string) {
+    function push(size: Col.Res | GridSize, sizeName?: string) {
       if (typeof size === 'object') {
         size.span && classes.push(styled[`span-${sizeName ? `${sizeName}-` : ''}${size.span}`])
         size.offset && classes.push(styled[`offset-${sizeName ? `${sizeName}-` : ''}${size.offset}`])
@@ -49,12 +74,41 @@ class Col extends React.Component<IColProps, IColState> {
       paddingRight: this.context.gutter ? this.context.gutter / 2 : undefined
     }
   }
+  private checkParent() {
+    if (!this.props['__PARENT__']) {
+      console.warn('存在Col不是Row的Child!')
+    }
+  }
+  componentWillMount() {
+    this.checkParent()
+  }
   render() {
     return (
       <div className={this.classes()} style={this.style()}>
         {this.props.children}
       </div>
     )
+  }
+}
+
+namespace Col {
+  export const Size = GridSize
+  export interface Res {
+    span?: GridSize
+    offset?: GridSize
+    order?: GridSize
+  }
+  export interface Props {
+    span?: GridSize
+    className?: string
+    style?: React.CSSProperties
+    offset?: GridSize
+    order?: GridSize
+    xs?: Res | GridSize
+    sm?: Res | GridSize
+    md?: Res | GridSize
+    lg?: Res | GridSize
+    xl?: Res | GridSize
   }
 }
 
