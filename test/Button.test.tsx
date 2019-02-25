@@ -36,12 +36,15 @@ describe('Button', () => {
     button.style.color.should.equal(style.color)
   })
 
-  it('可以触发click事件', () => {
+  it('可以触发click事件', (done) => {
     let clickHandle = sinon.fake()
     ReactDOM.render(<Button onClick={clickHandle}></Button>, container)
     Simulate.click(container.querySelector(`.${styled.button}`))
-    clickHandle.should.has.been.called
-  })
+    setTimeout(() => {
+      clickHandle.should.has.been.called
+      done()
+    }, 2001)
+  }).timeout(3000)
 
   it('可以disabled', () => {
     let clickHandle = sinon.fake()
