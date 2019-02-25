@@ -12,7 +12,7 @@ const _options: Message.Option = {
   duration: 3000
 }
 
-const _messageRoot = document.createElement('div')
+let _messageRoot = document.createElement('div')
 _messageRoot.className = styled.message
 
 function _init() {
@@ -24,6 +24,7 @@ function _init() {
 
 function _distroy() {
   _messageRoot.remove()
+  _messageRoot = document.createElement('div')
 }
 
 function _notice(content: React.ReactNode, durationOrOnClose?: number | Function, onClose?: Function, type?: NoticeType) {
