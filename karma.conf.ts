@@ -6,7 +6,8 @@ import webpackConfig from './build/webpack.test'
 
 interface KarmaWebpackConfigOption extends Karma.ConfigOptions {
   webpack: webpack.Configuration,
-  mochaReporter: any
+  mochaReporter: any,
+  coverageReporter: any
 }
 interface KarmaWebpackConfig extends Karma.Config {
   set: (config: KarmaWebpackConfigOption) => void
@@ -38,7 +39,7 @@ export default (config: KarmaWebpackConfig) => {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha'],
+    reporters: ['mocha', 'coverage'],
 
     mochaReporter: {
       colors: {
@@ -52,6 +53,17 @@ export default (config: KarmaWebpackConfig) => {
         info: '✉️ ',
         warning: '⚠️ ',
         error: '❌ '
+      }
+    },
+
+    coverageReporter: {
+      type: 'lcovonly',
+      check: {
+        global: {
+          excludes: [
+            'node_modules/**/*'
+          ]
+        }
       }
     },
 
