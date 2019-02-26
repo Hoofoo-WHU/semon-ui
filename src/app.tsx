@@ -38,7 +38,7 @@ class App extends React.Component<any, IState> {
       <Button type="primary" onClick={() => Message.warn('警告哦，这是一条警告消息')}>Warn</Button>
       <Button type="primary" onClick={() => Message.error('错了哦，这是一条错误消息')}>Error</Button>
       <h1>Layout</h1>
-      <Layout className="demo-layout">
+      <Layout className="demo-layout" style={{ backgroundColor: 'red' }}>
         <Layout.Header className='demo-header'>Header</Layout.Header>
         <Layout.Content className='demo-content'><div className='content-inner'>Content</div></Layout.Content>
         <Layout.Footer className='demo-footer'>Footer</Layout.Footer>

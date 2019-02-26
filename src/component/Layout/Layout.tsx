@@ -4,56 +4,39 @@ import Footer from './Footer'
 import Header from './Header'
 import Sider from './Sider'
 import styled from '@/style/component/Layout/Layout.scss'
+import classMerge from '../../until/class-merge'
+import SemonPropTypes from '../../until/semon-prop-types'
+import * as PropTypes from 'prop-types'
+import { childrenOfType } from 'airbnb-prop-types'
 
-export interface ILayoutProps {
-  className?: string
-  hasSider?: boolean
-  style?: React.CSSProperties
-}
-
-class Layout extends React.Component<ILayoutProps> {
+class Layout extends React.Component<Layout.Props> {
   static displayName = 'Layout'
   static Content = Content
   static Footer = Footer
   static Header = Header
   static Sider = Sider
+  static propTypes: PropTypes.ValidationMap<Layout.Props> = {
+    className: PropTypes.string,
+    hasSider: PropTypes.bool,
+    style: SemonPropTypes.style,
+    children: childrenOfType(Layout, Content, Header, Footer, Sider)
+  }
 
   private hasSider() {
     if (this.props.hasSider) {
       return true
     }
-    const children = Array.isArray(this.props.children) ? this.props.children : [this.props.children]
-    return children.some((e: JSX.Element) => {
-      if (!e) {
-        return false
-      }
+    return React.Children.toArray(this.props.children).some((e: JSX.Element) => {
       return e.type === (<Sider />).type
     })
   }
-  private childrenValidate() {
-    const children = Array.isArray(this.props.children) ? this.props.children : [this.props.children]
-    return children.every((e: React.ReactElement<{}>) => {
-      if (!e) {
-        return true
-      }
-      return e.type === (<Sider />).type
-        || e.type === (<Footer />).type
-        || e.type === (<Content />).type
-        || e.type === (<Layout />).type
-        || e.type === (<Header />).type
-    })
-  }
-  componentDidMount() {
-    this.childrenValidate()
-      || console.warn(`Layout组件中包含了非Layout、Header、Content、Footer、Sidebar组件！`)
-  }
+
   renderChildren() {
     return React.Children.map(this.props.children, (e: any) => {
       // 为合法子组件添加Parent标识
       if (e.type === (<Sider />).type
         || e.type === (<Footer />).type
         || e.type === (<Content />).type
-        || e.type === (<Layout />).type
         || e.type === (<Header />).type) {
         return React.cloneElement(e, {
           __PARENT__: true
@@ -62,19 +45,25 @@ class Layout extends React.Component<ILayoutProps> {
       return e
     })
   }
-  private classes() {
-    const { className } = this.props
-    const classes = []
-    className && classes.push(className)
-    classes.push(styled.layout)
-    this.hasSider() && classes.push(styled['has-sider'])
-    return classes.join(' ')
-  }
 
   render() {
-    return (
-      <div className={this.classes()} style={this.props.style}>{this.renderChildren()}</div>
+    const { className, style } = this.props
+    const classes = classMerge(
+      className,
+      styled.layout,
+      this.hasSider() && styled['has-sider']
     )
+    return (
+      <div className={classes} style={style}>{this.renderChildren()}</div>
+    )
+  }
+}
+
+namespace Layout {
+  export interface Props extends React.Props<{}> {
+    className?: string
+    hasSider?: boolean
+    style?: React.CSSProperties
   }
 }
 
