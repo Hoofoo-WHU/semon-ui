@@ -1,8 +1,8 @@
-<div align="center" style="text-align: center">
+<p align="center">
 <img width="80" align="center" src="https://image-1256107964.cos.ap-beijing.myqcloud.com/blog/2019-02-22-logo.jpg">
-</div>
-<h1 align="center" style="text-align: center">Semon UI</h1>
-<div align="center" style="text-align: center">
+</p>
+<h1 align="center">Semon UI</h1>
+<div align="center">
 
 [![Build Status](https://travis-ci.org/Hoofoo-WHU/semon-ui.svg?branch=master)](https://travis-ci.org/Hoofoo-WHU/semon-ui)
 [![Codecov](https://img.shields.io/codecov/c/github/hoofoo-WHU/semon-ui.svg)](https://codecov.io/gh/Hoofoo-WHU/semon-ui)
