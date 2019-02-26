@@ -1,30 +1,40 @@
 import * as React from 'react'
 import styled from '@/style/component/Layout/Footer.scss'
+import classMerge from '../../until/class-merge'
+import * as PropTypes from 'prop-types'
+import SemonPropTypes from '../../until/semon-prop-types'
 
-export interface IFooterProps {
-  className?: string
-  style?: React.CSSProperties
-}
-
-class Footer extends React.Component<IFooterProps> {
+class Footer extends React.Component<Footer.Props> {
   static displayName = 'Footer'
-  classes() {
-    const { className } = this.props
-    const classes = []
-    className && classes.push(className)
-    classes.push(styled['layout-footer'])
-    return classes.join(' ')
+  static propTypes: PropTypes.ValidationMap<Footer.Props> = {
+    className: PropTypes.string,
+    style: SemonPropTypes.style
   }
+
   private parentValidate() {
     this.props['__PARENT__'] || console.warn(`存在Footer组件的父组件不是Layout！`)
   }
+
   componentWillMount() {
     this.parentValidate()
   }
+
   render() {
-    return (
-      <div className={this.classes()} style={this.props.style}>{this.props.children}</div>
+    const { className, style } = this.props
+    const classes = classMerge(
+      className,
+      styled['layout-footer']
     )
+    return (
+      <div className={classes} style={style}>{this.props.children}</div>
+    )
+  }
+}
+
+namespace Footer {
+  export interface Props extends React.Props<{}> {
+    className?: string,
+    style?: React.CSSProperties
   }
 }
 
