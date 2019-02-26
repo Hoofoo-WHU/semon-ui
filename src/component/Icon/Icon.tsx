@@ -7,12 +7,12 @@ import classMerge from '../../until/class-merge'
 
 class Icon extends React.Component<Icon.Props> {
   static displayName = 'Icon'
-  static propsType = {
+  static propsType: PropTypes.ValidationMap<Icon.Props> = {
     className: PropTypes.string,
     style: PropTypes.object,
-    type: PropTypes.oneOf(IconType),
+    type: PropTypes.oneOf(IconType).isRequired,
     spin: PropTypes.bool,
-    children: AirbnbPropTypes.explicitNull
+    children: AirbnbPropTypes.explicitNull()
   }
   render() {
     const { className, style, type, spin } = this.props
