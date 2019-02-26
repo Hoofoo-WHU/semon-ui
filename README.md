@@ -4,7 +4,7 @@
 <h1 align="center" style="text-align: center">Semon UI</h1>
 <div align="center" style="text-align: center">
 
-[![Build Status](https://travis-ci.org/Hoofoo-WHU/semon-ui.svg?branch=master)](https://travis-ci.org/Hoofoo-WHU/semon-ui)
+[![Build Status](https://travis-ci.org/Hoofoo-WHU/semon-ui.svg?branch=master)](https://travis-ci.org/Hoofoo-WHU/semon-ui-react)
 [![Codecov](https://img.shields.io/codecov/c/github/hoofoo-WHU/semon-ui.svg)](https://codecov.io/gh/Hoofoo-WHU/semon-ui)
 [![License](https://img.shields.io/github/license/hoofoo-WHU/semon-ui.svg?style=flat)](LICENSE)
 [![install size](https://packagephobia.now.sh/badge?p=@semon/semon-ui)](https://packagephobia.now.sh/result?p=@semon/semon-ui)

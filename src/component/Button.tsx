@@ -84,8 +84,7 @@ class Button extends React.Component<Button.Props, State> {
         {icon ? <Icon type={icon} /> : ''}
         {children ? <span>{children}</span> : ''}
         {iconRight ? <Icon type={iconRight} /> : ''}
-      </button>
-    )
+      </button >)
   }
 }
 
@@ -121,10 +120,10 @@ namespace Button {
     }
     render() {
       const { type, size, shape, disabled, className, children, style } = this.props
-      const classes = classMerge(
+      const classes = classMerge(...[
         className,
         styled['button-group']
-      )
+      ])
       return (
         <ButtonGroupContext.Provider value={{ size, type, shape, disabled }}>
           <div className={classes} style={style}>{children}</div>

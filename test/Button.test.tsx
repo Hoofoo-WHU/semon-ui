@@ -49,15 +49,7 @@ describe('Button', () => {
   it('可以disabled', () => {
     let clickHandle = sinon.fake()
     ReactDOM.render(<Button onClick={clickHandle} disabled></Button>, container)
-    Simulate.click(container.querySelector(`.${styled.button}`))
     clickHandle.should.has.not.been.called
-  })
-
-  it('可以设置children', () => {
-    const text = Mock.Random.sentence(1, 3)
-    ReactDOM.render(<Button>{text}</Button>, container)
-    const button: HTMLElement = container.querySelector(`.${styled.button}`)
-    button.innerText.should.equal(text)
   })
 
   describe('htmlType', () => {
@@ -125,12 +117,6 @@ describe('Button.Group', () => {
     ReactDOM.render(<Button.Group style={style} />, container)
     const group: HTMLElement = container.querySelector(`.${styled['button-group']}`)
     group.style.color.should.equal(style.color)
-  })
-
-  it(`可以设置disabled`, () => {
-    const element = <Button.Group disabled><Button disabled></Button></Button.Group>
-    ReactDOM.render(element, container)
-    container.querySelector(`.${styled['button-group']} .${styled.button}`).hasAttribute('disabled').should.is.ok
   })
 
   describe('size', () => {
