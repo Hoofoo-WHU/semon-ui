@@ -31,6 +31,8 @@ interface IRowState {
 
 class Row extends React.Component<Row.Props, IRowState>{
   static displayName = 'Row'
+  static Justify = RowJustify
+  static Align = RowAlign
 
   static propTypes: any = {
     className: PropTypes.string,
@@ -94,9 +96,6 @@ class Row extends React.Component<Row.Props, IRowState>{
           }))
         },
         unmatch: () => {
-          if (typeof this.props.gutter !== 'object') {
-            return
-          }
           this.setState(prevState => ({
             screen: {
               ...prevState.screen,
@@ -143,8 +142,6 @@ class Row extends React.Component<Row.Props, IRowState>{
 }
 
 namespace Row {
-  export const Justify = RowJustify
-  export const Align = RowAlign
   export interface Props extends React.Props<{}> {
     className?: string
     justify?: RowJustify

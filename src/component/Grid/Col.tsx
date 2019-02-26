@@ -44,26 +44,25 @@ const propTypes = {
 class Col extends React.Component<Col.Props> {
   static displayName = 'Col'
   static contextType = RowContext
-  static defaultProps: Col.Props = {
-    span: '24'
-  }
+  static Size = GridSize
+  static defaultProps: Col.Props = { span: '24' }
   static propTypes = propTypes
 
   readonly context: IRowContext
   private classes() {
     function push(size: Col.Res | GridSize, sizeName?: string) {
       if (typeof size === 'object') {
-        size.span && classes.push(styled[`span-${sizeName ? `${sizeName}-` : ''}${size.span}`])
-        size.offset && classes.push(styled[`offset-${sizeName ? `${sizeName}-` : ''}${size.offset}`])
-        size.order && classes.push(styled[`order-${sizeName ? `${sizeName}-` : ''}${size.order}`])
+        size.span && classes.push(styled[`span-${sizeName}${size.span}`])
+        size.offset && classes.push(styled[`offset-${sizeName}${size.offset}`])
+        size.order && classes.push(styled[`order-${sizeName}${size.order}`])
       } else {
-        size && classes.push(styled[`span-${sizeName ? `${sizeName}-` : ''}${size}`])
+        size && classes.push(styled[`span-${sizeName}${size}`])
       }
     }
     const classes = []
     this.props.className && classes.push(this.props.className)
     classes.push(styled.col)
-    push(this.props)
+    push(this.props, '')
     const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
     sizes.forEach(name => this.props[name] && push(this.props[name], name))
     return classes.join(' ')
@@ -92,7 +91,6 @@ class Col extends React.Component<Col.Props> {
 }
 
 namespace Col {
-  export const Size = GridSize
   export interface Res {
     span?: GridSize
     offset?: GridSize

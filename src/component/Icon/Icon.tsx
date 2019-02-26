@@ -7,6 +7,7 @@ import classMerge from '../../until/class-merge'
 
 class Icon extends React.Component<Icon.Props> {
   static displayName = 'Icon'
+  static Type = IconType
   static propsType: PropTypes.ValidationMap<Icon.Props> = {
     className: PropTypes.string,
     style: PropTypes.object,
@@ -25,7 +26,6 @@ class Icon extends React.Component<Icon.Props> {
 }
 
 namespace Icon {
-  export const Type = IconType
   export interface Props extends React.Props<{}> {
     className?: string
     style?: React.CSSProperties

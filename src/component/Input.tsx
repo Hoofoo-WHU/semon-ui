@@ -27,6 +27,7 @@ const propTypes = {
 class Input extends React.Component<Input.Props> {
   static displayName = 'Input'
   static propTypes = propTypes
+  static Size = InputSize
 
   private focusHandle(e: React.FocusEvent<HTMLInputElement>) {
     this.props.onFocus && this.props.onFocus(e)
@@ -121,7 +122,6 @@ namespace Input {
     onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
     onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>
   }
-  export const Size = InputSize
 }
 
 export default Input
