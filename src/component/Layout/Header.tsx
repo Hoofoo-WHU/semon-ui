@@ -20,13 +20,13 @@ class Header extends React.Component<Header.Props> {
   }
 
   render() {
-    const { className, style } = this.props
+    const { className, style, children } = this.props
     const classes = classMerge(
       className,
       styled['layout-header']
     )
     return (
-      <div className={classes} style={style}>{this.props.children}</div>
+      <div className={classes} style={style}>{children}</div>
     )
   }
 }

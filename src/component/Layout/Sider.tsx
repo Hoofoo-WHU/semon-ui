@@ -23,7 +23,7 @@ class Sider extends React.Component<Sider.Props> {
     const { className, style } = this.props
     const classes = classMerge(
       className,
-      styled['layout-content']
+      styled['layout-sider']
     )
     return <div className={classes} style={style}>{this.props.children}</div>
   }
