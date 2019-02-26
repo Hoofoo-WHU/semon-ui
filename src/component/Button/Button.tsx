@@ -1,33 +1,13 @@
 import * as React from 'react'
 import styled from '@/style/component/Button.scss'
-import Icon from './Icon'
-import classMerge from '../until/class-merge'
+import Icon from '../Icon'
+import classMerge from '../../until/class-merge'
 import * as PropTypes from 'prop-types'
-import { childrenOfType } from 'airbnb-prop-types'
-import { tuple } from '../until/type'
+import ButtonGroupContext from './ButtonGroupContext'
+import ButtonGroup from './ButtonGroup'
+import { IconType, ButtonSize, ButtonType, ButtonShape, ButtonHtmlType } from './Type'
 
-const ButtonSize = tuple('small', 'large')
-type ButtonSize = typeof ButtonSize[number]
-
-const ButtonType = tuple('primary', 'dashed', 'danger')
-type ButtonType = typeof ButtonType[number]
-
-const ButtonShape = tuple('round', 'circle')
-type ButtonShape = typeof ButtonShape[number]
-
-const ButtonHtmlType = tuple('submit', 'reset', 'text')
-type ButtonHtmlType = typeof ButtonHtmlType[number]
-
-const IconType = Icon.Type
-
-interface IButtonGroupContext {
-  size?: ButtonSize
-  type?: ButtonType
-  shape?: ButtonShape
-  disabled?: boolean
-}
-
-const ButtonGroupContext = React.createContext<IButtonGroupContext>({})
+type Group = typeof ButtonGroup
 
 interface State {
   clickAnimating: boolean
@@ -35,6 +15,12 @@ interface State {
 
 class Button extends React.Component<Button.Props, State> {
   static displayName = 'Button'
+  static Group: Group
+  static Size = ButtonSize
+  static Type = ButtonType
+  static Shape = ButtonShape
+  static Icon = IconType
+  static HtmlType = ButtonHtmlType
   static contextType = ButtonGroupContext
   static propTypes = {
     size: PropTypes.oneOf(ButtonSize),
@@ -50,7 +36,7 @@ class Button extends React.Component<Button.Props, State> {
   }
 
   private _animatingTimer: NodeJS.Timeout
-  context: IButtonGroupContext
+  context: ButtonGroupContext
   readonly state = {
     clickAnimating: false
   }
@@ -70,7 +56,7 @@ class Button extends React.Component<Button.Props, State> {
       styled[this.context.size || size],
       styled[this.context.type || type],
       styled[this.context.shape || shape],
-      children ? styled['icon-only'] : ''
+      children ? '' : styled['icon-only']
     ])
     return (
       <button
@@ -89,11 +75,6 @@ class Button extends React.Component<Button.Props, State> {
 }
 
 namespace Button {
-  export const Size = ButtonSize
-  export const Type = ButtonType
-  export const Shape = ButtonShape
-  export const Icon = IconType
-  export const HtmlType = ButtonHtmlType
   export interface Props {
     size?: ButtonSize
     type?: ButtonType
@@ -105,45 +86,6 @@ namespace Button {
     className?: string
     style?: React.CSSProperties
     onClick?: React.MouseEventHandler
-  }
-
-  export class Group extends React.Component<Group.Props> {
-    static displayName = 'Button.Group'
-    static propTypes: object = {
-      size: PropTypes.oneOf(ButtonSize),
-      type: PropTypes.oneOf(ButtonType),
-      shape: PropTypes.oneOf(ButtonShape),
-      disabled: PropTypes.bool,
-      className: PropTypes.string,
-      style: PropTypes.object,
-      children: childrenOfType(Button)
-    }
-    render() {
-      const { type, size, shape, disabled, className, children, style } = this.props
-      const classes = classMerge(...[
-        className,
-        styled['button-group']
-      ])
-      return (
-        <ButtonGroupContext.Provider value={{ size, type, shape, disabled }}>
-          <div className={classes} style={style}>{children}</div>
-        </ButtonGroupContext.Provider>
-      )
-    }
-  }
-
-  export namespace Group {
-    export const Size = ButtonSize
-    export const Type = ButtonType
-    export const Shape = ButtonShape
-    export interface Props extends React.Props<{}> {
-      size?: ButtonSize
-      type?: ButtonType
-      shape?: ButtonShape
-      disabled?: boolean
-      className?: string
-      style?: React.CSSProperties
-    }
   }
 }
 

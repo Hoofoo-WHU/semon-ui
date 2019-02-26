@@ -8,17 +8,18 @@ import * as Mock from 'mockjs';
 
 chai.should()
 
-let container: Element
-beforeEach(() => {
-  container = document.createElement('div')
-  document.body.appendChild(container)
-})
-afterEach(() => {
-  container.remove()
-  container = null
-})
+
 
 describe('Button', () => {
+  let container: Element
+  beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+  })
+  afterEach(() => {
+    container.remove()
+    container = null
+  })
   it('可以导入', () => {
     Button.should.exist
   })
@@ -49,7 +50,16 @@ describe('Button', () => {
   it('可以disabled', () => {
     let clickHandle = sinon.fake()
     ReactDOM.render(<Button onClick={clickHandle} disabled></Button>, container)
+    Simulate.click(container.querySelector(`.${styled.button}`))
     clickHandle.should.has.not.been.called
+  })
+
+  it('可以设置children', () => {
+    const text = Mock.Random.word(1, 30)
+    ReactDOM.render(<Button>{text}</Button>, container)
+    const button: HTMLElement = container.querySelector(`.${styled.button}`)
+    button.classList.contains(styled['icon-only']).should.not.be.ok
+    button.innerText.should.equal(text)
   })
 
   describe('htmlType', () => {
@@ -69,6 +79,10 @@ describe('Button', () => {
     it('可以设置iconRight', () => {
       ReactDOM.render(<Button iconRight='right'></Button>, container)
       container.querySelector(`.${styled.button} .${styled.icon}`).should.exist
+    })
+    it('可以iconOnly', () => {
+      ReactDOM.render(<Button icon='right'></Button>, container)
+      container.querySelector(`.${styled.button}`).classList.contains(styled['icon-only']).should.be.ok
     })
   })
 
@@ -102,6 +116,16 @@ describe('Button', () => {
 })
 
 describe('Button.Group', () => {
+  let container: Element
+  beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+  })
+  afterEach(() => {
+    container.remove()
+    container = null
+  })
+
   it('可以导入', () => {
     Button.Group.should.exist
   })
