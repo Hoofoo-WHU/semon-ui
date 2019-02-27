@@ -12,7 +12,7 @@ type ButtonType = typeof ButtonType[number]
 const ButtonShape = tuple('round', 'circle')
 type ButtonShape = typeof ButtonShape[number]
 
-const ButtonHtmlType = tuple('submit', 'reset', 'text')
+const ButtonHtmlType = tuple('submit', 'reset', 'button')
 type ButtonHtmlType = typeof ButtonHtmlType[number]
 
 export {
