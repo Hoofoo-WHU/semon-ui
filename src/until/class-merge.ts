@@ -5,7 +5,7 @@
  */
 function classMerge(...classes: string[]) {
   return classes
-    .filter(name => typeof name === 'string' || name === '')
+    .filter(name => typeof name === 'string' && name !== '')
     .map(name => name.trim())
     .join(' ')
 }
