@@ -65,7 +65,7 @@ class Content extends React.Component<Content.Props, State>{
 
   private renderChildren() {
     let childrenNames = React.Children.map(this.props.children, (v: any) => v.props.name)
-    if (childrenNames.length !== new Set(childrenNames).size) {
+    if (childrenNames && childrenNames.length !== new Set(childrenNames).size) {
       throw new Error('Tabs.Panel的name必须唯一！')
     }
     return React.Children.map(this.props.children, (child: any) => {
