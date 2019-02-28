@@ -1,5 +1,7 @@
 export interface ITabScss {
   'tabs-tab': string
+  'left': string
+  'right': string
   'selected': string
   'disabled': string
 }

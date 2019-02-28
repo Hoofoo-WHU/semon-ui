@@ -15,5 +15,41 @@
     height: 2px;
     background-color: $color-primary;
     bottom: -1px;
+    flex-shrink: 0;
+  }
+  .tabs-tab:not(:nth-last-child(2)) {
+    margin: 0 32px 0 0;
+  }
+  &.left,
+  &.right {
+    border: none;
+    flex-direction: column;
+    .tabs-tab:not(:nth-last-child(2)) {
+      margin: 0 0 16px 0;
+    }
+  }
+  &.left {
+    border-right: 1px solid $color-border;
+    .ink-bar {
+      top: 0;
+      width: 2px;
+      height: 100px;
+      right: -1px;
+    }
+  }
+  &.right {
+    border-left: 1px solid $color-border;
+    .ink-bar {
+      top: 0;
+      left: -1px;
+    }
+  }
+  &.bottom {
+    border: none;
+    border-top: 1px solid $color-border;
+    .ink-bar {
+      left: 0;
+      top: -1px;
+    }
   }
 }

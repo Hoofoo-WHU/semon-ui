@@ -3,14 +3,21 @@ import * as ReactDom from 'react-dom'
 import { Button, Icon, Input, Row, Col, Layout, Message, Tabs } from './'
 import '@/style/app.scss'
 
-interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger', value: string, activeName: string }
+interface IState {
+  disabled: boolean,
+  type?: 'primary' | 'dashed' | 'danger',
+  value: string,
+  activeName: string,
+  tabPostion: Tabs.Props['tabPosition']
+}
 
 class App extends React.Component<any, IState> {
   readonly state: IState = {
     disabled: false,
     type: undefined,
     value: '',
-    activeName: '2'
+    activeName: '2',
+    tabPostion: 'top'
   }
   disabled() {
     this.setState((state) => {
@@ -34,11 +41,15 @@ class App extends React.Component<any, IState> {
   render() {
     return <React.Fragment>
       <h1>Tabs</h1>
+      <Button onClick={() => this.setState({ tabPostion: 'top' })}>Top</Button>
+      <Button onClick={() => this.setState({ tabPostion: 'right' })}>Right</Button>
+      <Button onClick={() => this.setState({ tabPostion: 'bottom' })}>Bottom</Button>
+      <Button onClick={() => this.setState({ tabPostion: 'left' })}>Left</Button>
       <Row>
         <Col span='12'>
-          <Tabs activeName={this.state.activeName} onChange={(name) => { this.setState({ activeName: name }) }}>
+          <Tabs tabPosition={this.state.tabPostion} activeName={this.state.activeName} onChange={(name) => { this.setState({ activeName: name }) }}>
             <Tabs.Nav>
-              <Tabs.Tab disabled name='1'>用户管理</Tabs.Tab>
+              <Tabs.Tab name='1' disabled>用户管理</Tabs.Tab>
               <Tabs.Tab name='2'>配置管理</Tabs.Tab>
               <Tabs.Tab name='3'>角色管理</Tabs.Tab>
               <Tabs.Tab name='4'>定时任务补偿</Tabs.Tab>

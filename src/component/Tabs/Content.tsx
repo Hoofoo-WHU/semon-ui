@@ -5,6 +5,7 @@ import classMerge from '../../until/class-merge'
 import styled from '@/style/component/Tabs/Content.scss'
 import Panel from './Panel'
 import { childrenOfType } from 'airbnb-prop-types'
+import TabsContext, { ITabsContext } from './TabsContext'
 
 interface State {
   transform: string
@@ -20,7 +21,9 @@ class Content extends React.Component<Content.Props, State>{
     style: SemonPropTypes.style,
     children: childrenOfType(Panel)
   }
+  static contextType = TabsContext
 
+  readonly context: ITabsContext
   readonly state = {
     transform: undefined,
     current: undefined,
@@ -39,13 +42,21 @@ class Content extends React.Component<Content.Props, State>{
 
   private onChange(e: HTMLDivElement) {
     if (this.state.current === undefined || this.state.current !== e) {
-      this.setState({
-        transform: `translate3d(-${e.offsetLeft / e.offsetWidth * 100}%,0,0)`,
-        current: e,
-        animate: true
-      })
+      this.updateTransform(e)
     }
-    if (this.state.current === undefined) {
+  }
+
+  private updateTransform(e: HTMLDivElement) {
+    let transform = `translate3d(-${e.offsetLeft / e.offsetWidth * 100}%,0,0)`
+    if (this.context.tabPosition === 'left' || this.context.tabPosition === 'right') {
+      transform = `translate3d(0,-${e.offsetTop / e.offsetHeight * 100}%,0)`
+    }
+    this.setState({
+      transform,
+      current: e,
+      animate: true
+    })
+    if (this.state.current === undefined || this.shouldTransformUpdate) {
       this.setState({
         animate: false
       })
@@ -58,11 +69,27 @@ class Content extends React.Component<Content.Props, State>{
     })
   }
 
+  private shouldTransformUpdate = false
+
+  componentWillReceiveProps(props, context: ITabsContext) {
+    if (context.tabPosition !== this.context.tabPosition) {
+      this.shouldTransformUpdate = true
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.shouldTransformUpdate) {
+      this.updateTransform(this.state.current)
+      this.shouldTransformUpdate = false
+    }
+  }
+
   render() {
     const { className, style } = this.props
     const classes = classMerge(
       className,
       styled['tabs-content'],
+      styled[this.context.tabPosition],
       this.state.animate && styled.animate
     )
 

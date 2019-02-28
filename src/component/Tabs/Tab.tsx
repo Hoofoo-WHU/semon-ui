@@ -62,7 +62,8 @@ class Tab extends React.Component<Tab.Props> {
       className,
       styled['tabs-tab'],
       disabled && styled.disabled,
-      selected && styled.selected
+      selected && styled.selected,
+      styled[this.context.tabPosition]
     )
     return (
       <div role='tab' className={classes} style={style} ref={this.ref} onClick={this.clickHandle.bind(this)}>{children}</div>
