@@ -88,6 +88,10 @@ class Nav extends React.Component<Nav.Props, State>{
   }
 
   private renderChildren() {
+    let childrenNames = React.Children.map(this.props.children, (v: any) => v.props.name)
+    if (childrenNames.length !== new Set(childrenNames).size) {
+      throw new Error('Tabs.Tab的name必须唯一！')
+    }
     return React.Children.map(this.props.children, (child: any) => {
       return React.cloneElement(child, { __PARENT__: true, __ON_ACTIVE__: this.onChange.bind(this) })
     })

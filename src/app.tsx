@@ -52,13 +52,13 @@ class App extends React.Component<any, IState> {
               <Tabs.Tab name='1' disabled>用户管理</Tabs.Tab>
               <Tabs.Tab name='2'>配置管理</Tabs.Tab>
               <Tabs.Tab name='3'>角色管理</Tabs.Tab>
-              <Tabs.Tab name='4'>定时任务补偿</Tabs.Tab>
+              <Tabs.Tab name='4'>定时任务</Tabs.Tab>
             </Tabs.Nav>
             <Tabs.Content>
               <Tabs.Panel name='1'>用户管理</Tabs.Panel>
               <Tabs.Panel name='2'>配置管理</Tabs.Panel>
               <Tabs.Panel name='3'>角色管理</Tabs.Panel>
-              <Tabs.Panel name='4'>定时任务补偿</Tabs.Panel>
+              <Tabs.Panel name='4'>定时任务</Tabs.Panel>
             </Tabs.Content>
           </Tabs>
         </Col>
