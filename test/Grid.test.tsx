@@ -7,20 +7,20 @@ import styledrow from '@/style/component/Row.scss'
 
 chai.should()
 
-let container: HTMLDivElement
-
-beforeEach(() => {
-  container = document.createElement('div')
-  document.body.appendChild(container)
-})
-
-afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container)
-  container.remove()
-  container = null
-})
-
 describe('Row', () => {
+  let container: HTMLDivElement
+
+  beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+  })
+
+  afterEach(() => {
+    ReactDOM.unmountComponentAtNode(container)
+    container.remove()
+    container = null
+  })
+
   it('可以导入', () => {
     Row.should.exist
   })
@@ -93,6 +93,19 @@ describe('Row', () => {
 })
 
 describe('Col', () => {
+  let container: HTMLDivElement
+
+  beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+  })
+
+  afterEach(() => {
+    ReactDOM.unmountComponentAtNode(container)
+    container.remove()
+    container = null
+  })
+
   it('可以设置className', () => {
     const className = Mock.Random.word(3, 5)
     ReactDOM.render(<Row><Col className={className}></Col></Row>, container)

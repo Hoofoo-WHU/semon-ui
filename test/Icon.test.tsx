@@ -6,20 +6,22 @@ import styled from '@/style/component/Icon.scss'
 
 chai.should()
 
-let container: HTMLDivElement
-const iconClass = `.${styled.icon}`
 
-beforeEach(() => {
-  container = document.createElement('div')
-  document.body.appendChild(container)
-})
-
-afterEach(() => {
-  container.remove()
-  container = null
-})
 
 describe('Icon', () => {
+  let container: HTMLDivElement
+  const iconClass = `.${styled.icon}`
+
+  beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+  })
+
+  afterEach(() => {
+    container.remove()
+    container = null
+  })
+
   it('可以导入', () => {
     Icon.should.exist
   })

@@ -47,6 +47,9 @@ class Content extends React.Component<Content.Props, State>{
   }
 
   private updateTransform(e: HTMLDivElement) {
+    if (!e) {
+      return
+    }
     let transform = `translate3d(-${e.offsetLeft / e.offsetWidth * 100}%,0,0)`
     if (this.context.tabPosition === 'left' || this.context.tabPosition === 'right') {
       transform = `translate3d(0,-${e.offsetTop / e.offsetHeight * 100}%,0)`
@@ -66,7 +69,8 @@ class Content extends React.Component<Content.Props, State>{
   private renderChildren() {
     let childrenNames = React.Children.map(this.props.children, (v: any) => v.props.name)
     if (childrenNames && childrenNames.length !== new Set(childrenNames).size) {
-      throw new Error('Tabs.Panel的name必须唯一！')
+      console.error('Tabs.Panel的name必须唯一！')
+      return <div className='error' style={{ color: 'white', backgroundColor: 'red' }}>Tabs.Panel的name必须唯一！</div>
     }
     return React.Children.map(this.props.children, (child: any) => {
       return React.cloneElement(child, { __PARENT__: true, __ON_ACTIVE__: this.onChange.bind(this) })

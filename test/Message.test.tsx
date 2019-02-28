@@ -5,9 +5,9 @@ import styled from '../src/style/component/Message.scss'
 
 chai.should()
 
-let container: HTMLDivElement
 
 describe('Message', () => {
+  let container: HTMLDivElement
   beforeEach(() => {
     container = document.createElement('div')
     document.body.appendChild(container)

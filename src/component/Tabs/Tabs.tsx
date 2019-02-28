@@ -28,8 +28,8 @@ class Tabs extends React.Component<Tabs.Props>{
   static Content: TabsContent
   static Panel: TabsPanel
   static Size = Size
-  static defaultProps: Tabs.Props = {
-    activeName: '',
+  static TabPosition = TabPosition
+  static defaultProps = {
     tabPosition: 'top',
     size: 'default'
   }

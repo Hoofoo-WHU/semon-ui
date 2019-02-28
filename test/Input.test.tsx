@@ -9,20 +9,22 @@ import { Simulate } from 'react-dom/test-utils'
 
 chai.should()
 
-let container: HTMLDivElement
-const inputClass = `.${styled.input}`
 
-beforeEach(() => {
-  container = document.createElement('div')
-  document.body.appendChild(container)
-})
-
-afterEach(() => {
-  container.remove()
-  container = null
-})
 
 describe('Input', () => {
+  let container: HTMLDivElement
+  const inputClass = `.${styled.input}`
+
+  beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+  })
+
+  afterEach(() => {
+    container.remove()
+    container = null
+  })
+
   it('可以导入', () => {
     Input.should.exist
   })

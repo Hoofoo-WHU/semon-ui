@@ -51,6 +51,9 @@ class Nav extends React.Component<Nav.Props, State>{
   }
 
   private updateInk(e: HTMLDivElement) {
+    if (e === undefined) {
+      return
+    }
     let inkTransform = `translate3d(${e.offsetLeft}px,0,0)`
     let inkWidth = e.offsetWidth
     let inkHeight = e.offsetHeight
@@ -91,7 +94,8 @@ class Nav extends React.Component<Nav.Props, State>{
   private renderChildren() {
     let childrenNames = React.Children.map(this.props.children, (v: any) => v.props.name)
     if (childrenNames && childrenNames.length !== new Set(childrenNames).size) {
-      throw new Error('Tabs.Tab的name必须唯一！')
+      console.error('Tabs.Tab的name必须唯一！')
+      return <div className='error' style={{ backgroundColor: 'red', color: 'white' }}>Tabs.Tab的name必须唯一！</div>
     }
     return React.Children.map(this.props.children, (child: any) => {
       return React.cloneElement(child, { __PARENT__: true, __ON_ACTIVE__: this.onChange.bind(this) })
