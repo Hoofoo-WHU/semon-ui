@@ -1,0 +1,10 @@
+@import "@/style/variable/font.scss";
+
+.tabs {
+  display: block;
+  box-sizing: border-box;
+  font-family: $font-family;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

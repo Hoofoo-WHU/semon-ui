@@ -1,15 +1,16 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-import { Button, Icon, Input, Row, Col, Layout, Message } from './'
+import { Button, Icon, Input, Row, Col, Layout, Message, Tabs } from './'
 import '@/style/app.scss'
 
-interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger', value: string }
+interface IState { disabled: boolean, type?: 'primary' | 'dashed' | 'danger', value: string, activeName: string }
 
 class App extends React.Component<any, IState> {
   readonly state: IState = {
     disabled: false,
     type: undefined,
-    value: ''
+    value: '',
+    activeName: '2'
   }
   disabled() {
     this.setState((state) => {
@@ -32,6 +33,25 @@ class App extends React.Component<any, IState> {
   }
   render() {
     return <React.Fragment>
+      <h1>Tabs</h1>
+      <Row>
+        <Col span='12'>
+          <Tabs activeName={this.state.activeName} onChange={(name) => { this.setState({ activeName: name }) }}>
+            <Tabs.Nav>
+              <Tabs.Tab disabled name='1'>用户管理</Tabs.Tab>
+              <Tabs.Tab name='2'>配置管理</Tabs.Tab>
+              <Tabs.Tab name='3'>角色管理</Tabs.Tab>
+              <Tabs.Tab name='4'>定时任务补偿</Tabs.Tab>
+            </Tabs.Nav>
+            <Tabs.Content>
+              <Tabs.Panel name='1'>用户管理</Tabs.Panel>
+              <Tabs.Panel name='2'>配置管理</Tabs.Panel>
+              <Tabs.Panel name='3'>角色管理</Tabs.Panel>
+              <Tabs.Panel name='4'>定时任务补偿</Tabs.Panel>
+            </Tabs.Content>
+          </Tabs>
+        </Col>
+      </Row>
       <h1>Message</h1>
       <Button type="primary" onClick={() => Message.success('恭喜你，这是一条成功消息')}>Message</Button>
       <Button type="primary" onClick={() => Message.info('这是一条消息提示')}>Info</Button>

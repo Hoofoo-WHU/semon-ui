@@ -1,0 +1,26 @@
+@import "@/style/variable/color.scss";
+@import "@/style/variable/font.scss";
+
+.tabs-tab {
+  box-sizing: border-box;
+  padding: 12px 16px;
+  margin-right: 32px;
+  transition: all 0.3s;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  line-height: 1.5;
+  &.selected {
+    color: $color-primary;
+  }
+  &:hover {
+    color: $color-primary-hover;
+  }
+  &:active {
+    color: $color-primary-active;
+  }
+  &.disabled {
+    color: $color-disabled-text !important;
+    cursor: not-allowed !important;
+  }
+}

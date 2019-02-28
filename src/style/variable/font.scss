@@ -2,4 +2,8 @@ $font-size-base: 14px;
 $font-size-small: $font-size-base - 2px;
 $font-size-large: $font-size-base + 2px;
 
-$font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+$font-weight-base: normal;
+$font-weight-bolder: 500;
+
+$font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
+  sans-serif;

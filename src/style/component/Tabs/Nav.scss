@@ -1,0 +1,19 @@
+@import "@/style/variable/font.scss";
+@import "@/style/variable/color.scss";
+
+.tabs-nav {
+  color: $color-text;
+  box-sizing: border-box;
+  font-size: $font-size-base;
+  display: flex;
+  border-bottom: 1px solid $color-border;
+  position: relative;
+  .ink-bar {
+    transition: all 0.3s;
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background-color: $color-primary;
+    bottom: -1px;
+  }
+}

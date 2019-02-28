@@ -5,6 +5,8 @@ import Row from './component/Row'
 import Col from './component/Col'
 import Layout from './component/Layout'
 import Message from './component/Message'
+import Tabs from './component/Tabs'
+
 export {
   Button,
   Icon,
@@ -12,5 +14,6 @@ export {
   Row,
   Col,
   Layout,
-  Message
+  Message,
+  Tabs
 }

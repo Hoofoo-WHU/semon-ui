@@ -1,0 +1,8 @@
+.tabs-content {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  &.animate {
+    transition: transform 0.3s;
+  }
+}
