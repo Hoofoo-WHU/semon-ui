@@ -16,6 +16,8 @@ type TabsTab = typeof Tab
 type TabsContent = typeof Content
 type TabsPanel = typeof Panel
 
+const Size = tuple('small', 'default', 'large')
+type Size = typeof Size[number]
 const TabPosition = tuple('top', 'left', 'right', 'bottom')
 type TabPosition = typeof TabPosition[number]
 
@@ -25,9 +27,11 @@ class Tabs extends React.Component<Tabs.Props>{
   static Tab: TabsTab
   static Content: TabsContent
   static Panel: TabsPanel
+  static Size = Size
   static defaultProps: Tabs.Props = {
     activeName: '',
-    tabPosition: 'top'
+    tabPosition: 'top',
+    size: 'default'
   }
   static propTypes: PropTypes.ValidationMap<Tabs.Props> = {
     className: PropTypes.string,
@@ -49,14 +53,14 @@ class Tabs extends React.Component<Tabs.Props>{
 
   render() {
     const change = this.change.bind(this)
-    const { className, style, activeName, tabPosition } = this.props
+    const { className, style, activeName, tabPosition, size } = this.props
     const classes = classMerge(
       className,
       styled.tabs,
       styled[`position-${tabPosition}`]
     )
     return (
-      <Context.Provider value={{ change, activeName, tabPosition }}>
+      <Context.Provider value={{ change, activeName, tabPosition, size }}>
         <div className={classes} style={style}>{this.renderChildren()}</div>
       </Context.Provider>
     )
@@ -66,6 +70,7 @@ class Tabs extends React.Component<Tabs.Props>{
 namespace Tabs {
   export interface Props extends React.Props<{}> {
     activeName: string
+    size?: Size
     tabPosition?: TabPosition
     onChange?: (name: string) => void
     className?: string

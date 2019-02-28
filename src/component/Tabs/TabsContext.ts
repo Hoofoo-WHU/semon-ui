@@ -4,12 +4,14 @@ export interface ITabsContext {
   change: (name: string, e?: MouseEvent) => void
   activeName: string
   tabPosition: Tabs.Props['tabPosition']
+  size: Tabs.Props['size']
 }
 
 const TabsContext = React.createContext<ITabsContext>({
   change: null,
   activeName: undefined,
-  tabPosition: 'top'
+  tabPosition: 'top',
+  size: 'default'
 })
 
 export default TabsContext

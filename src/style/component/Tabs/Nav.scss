@@ -8,11 +8,6 @@
   display: flex;
   border-bottom: 1px solid $color-border;
   position: relative;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   flex-shrink: 0;
   .ink-bar {
     position: absolute;

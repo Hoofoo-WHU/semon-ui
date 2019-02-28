@@ -9,9 +9,22 @@
   flex-shrink: 0;
   position: relative;
   line-height: 1.5;
+  &.large {
+    padding: 16px;
+    font-size: $font-size-large;
+  }
+  &.small {
+    padding: 8px 16px;
+  }
   &.left,
   &.right {
     padding: 8px 24px;
+    &.large {
+      padding: 16px;
+    }
+    &.small {
+      padding: 8px 16px;
+    }
   }
   &.left {
     text-align: right;

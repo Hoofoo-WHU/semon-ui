@@ -61,6 +61,7 @@ class Tab extends React.Component<Tab.Props> {
     const classes = classMerge(
       className,
       styled['tabs-tab'],
+      styled[this.context.size],
       disabled && styled.disabled,
       selected && styled.selected,
       styled[this.context.tabPosition]

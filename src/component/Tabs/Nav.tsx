@@ -75,7 +75,8 @@ class Nav extends React.Component<Nav.Props, State>{
   }
 
   componentWillReceiveProps(props, context: ITabsContext) {
-    if (context.tabPosition !== this.context.tabPosition) {
+    if (context.tabPosition !== this.context.tabPosition
+      || context.size !== this.context.size) {
       this.shouldInkUpdate = true
     }
   }

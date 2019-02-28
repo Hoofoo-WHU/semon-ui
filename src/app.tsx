@@ -8,7 +8,8 @@ interface IState {
   type?: 'primary' | 'dashed' | 'danger',
   value: string,
   activeName: string,
-  tabPostion: Tabs.Props['tabPosition']
+  tabPostion: Tabs.Props['tabPosition'],
+  tabSize: Tabs.Props['size']
 }
 
 class App extends React.Component<any, IState> {
@@ -17,7 +18,8 @@ class App extends React.Component<any, IState> {
     type: undefined,
     value: '',
     activeName: '2',
-    tabPostion: 'top'
+    tabPostion: 'top',
+    tabSize: 'default'
   }
   disabled() {
     this.setState((state) => {
@@ -41,13 +43,20 @@ class App extends React.Component<any, IState> {
   render() {
     return <React.Fragment>
       <h1>Tabs</h1>
-      <Button onClick={() => this.setState({ tabPostion: 'top' })}>Top</Button>
-      <Button onClick={() => this.setState({ tabPostion: 'right' })}>Right</Button>
-      <Button onClick={() => this.setState({ tabPostion: 'bottom' })}>Bottom</Button>
-      <Button onClick={() => this.setState({ tabPostion: 'left' })}>Left</Button>
+      <Button.Group style={{ marginBottom: 8 }}>
+        <Button onClick={() => this.setState({ tabPostion: 'top' })}>Top</Button>
+        <Button onClick={() => this.setState({ tabPostion: 'right' })}>Right</Button>
+        <Button onClick={() => this.setState({ tabPostion: 'bottom' })}>Bottom</Button>
+        <Button onClick={() => this.setState({ tabPostion: 'left' })}>Left</Button>
+      </Button.Group>
+      <Button.Group style={{ marginBottom: 8 }}>
+        <Button onClick={() => this.setState({ tabSize: 'small' })}>Small</Button>
+        <Button onClick={() => this.setState({ tabSize: 'default' })}>Default</Button>
+        <Button onClick={() => this.setState({ tabSize: 'large' })}>Large</Button>
+      </Button.Group>
       <Row>
         <Col span='12'>
-          <Tabs tabPosition={this.state.tabPostion} activeName={this.state.activeName} onChange={(name) => { this.setState({ activeName: name }) }}>
+          <Tabs size={this.state.tabSize} tabPosition={this.state.tabPostion} activeName={this.state.activeName} onChange={(name) => { this.setState({ activeName: name }) }}>
             <Tabs.Nav>
               <Tabs.Tab name='1' disabled>用户管理</Tabs.Tab>
               <Tabs.Tab name='2'>配置管理</Tabs.Tab>
@@ -100,11 +109,10 @@ class App extends React.Component<any, IState> {
       </Layout>
       <h1>Grid</h1>
       <h2>span:</h2>
-      <Row className="demo-row" gutter={{ md: 20, xxl: 40 }}>
-        <Col className='demo-col' span='12'><div>span-12</div></Col>
-        <Col className='demo-col' span='12'><div>span-12</div></Col>
+      <Row className="demo-row">
+        <Col className='demo-col' span='24'><div>span-24</div></Col>
       </Row>
-      <Row className="demo-row" gutter={{ md: 40, xxl: 20 }}>
+      <Row className="demo-row">
         <Col className='demo-col' span='12'><div>span-12</div></Col>
         <Col className='demo-col' span='12'><div>span-12</div></Col>
       </Row>
@@ -211,6 +219,11 @@ class App extends React.Component<any, IState> {
       <Icon type='left'></Icon>
       <Icon type='search'></Icon>
       <Icon type='right'></Icon>
+      <Icon type='user'></Icon>
+      <Icon type='check-circle-fill'></Icon>
+      <Icon type='close-circle-fill'></Icon>
+      <Icon type='info-circle-fill'></Icon>
+      <Icon type='warning-circle-fill'></Icon>
     </React.Fragment>
   }
 }
