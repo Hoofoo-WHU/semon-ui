@@ -1,8 +1,11 @@
+@import "@/style/variable/font.scss";
+
 .layout {
   display: flex;
   flex: auto;
   flex-direction: column;
   box-sizing: border-box;
+  font-family: $font-family;
 
   &.has-sider {
     flex-direction: row;

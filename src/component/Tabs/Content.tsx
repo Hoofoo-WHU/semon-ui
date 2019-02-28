@@ -40,7 +40,7 @@ class Content extends React.Component<Content.Props, State>{
   private onChange(e: HTMLDivElement) {
     if (this.state.current === undefined || this.state.current !== e) {
       this.setState({
-        transform: `translate3d(-${e.offsetLeft}px,0,0)`,
+        transform: `translate3d(-${e.offsetLeft / e.offsetWidth * 100}%,0,0)`,
         current: e,
         animate: true
       })
