@@ -11,6 +11,7 @@ interface State {
   inkWidth: number
   inkHeight: number
   inkTransform: string
+  inkAnimate: boolean
   current: HTMLDivElement
 }
 
@@ -27,6 +28,7 @@ class Nav extends React.Component<Nav.Props, State>{
     inkWidth: 0,
     inkHeight: 0,
     inkTransform: undefined,
+    inkAnimate: false,
     current: undefined
   }
   private shouldInkUpdate: boolean = false
@@ -62,13 +64,18 @@ class Nav extends React.Component<Nav.Props, State>{
       inkTransform,
       inkWidth,
       inkHeight,
+      inkAnimate: true,
       current: e
     })
+    if (!this.state.current || this.shouldInkUpdate) {
+      this.setState({
+        inkAnimate: false
+      })
+    }
   }
 
   componentWillReceiveProps(props, context: ITabsContext) {
     if (context.tabPosition !== this.context.tabPosition) {
-      this.state.inkTransform = false
       this.shouldInkUpdate = true
     }
   }
@@ -93,19 +100,19 @@ class Nav extends React.Component<Nav.Props, State>{
       styled['tabs-nav'],
       styled[this.context.tabPosition]
     )
+    const inkClasses = classMerge(
+      styled['ink-bar'],
+      this.state.inkAnimate && styled.animate
+    )
     return (
       <div className={classes} style={style}>
         {this.renderChildren()}
-        {
-          this.state.inkTransform ?
-            <div className={styled['ink-bar']} style={{
-              transform: this.state.inkTransform,
-              width: this.state.inkWidth,
-              height: this.state.inkHeight,
-              ...style
-            }} />
-            : null
-        }
+        <div className={inkClasses} style={{
+          transform: this.state.inkTransform,
+          width: this.state.inkWidth,
+          height: this.state.inkHeight,
+          ...style
+        }} />
       </div>
     )
   }
