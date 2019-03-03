@@ -4,7 +4,7 @@
 ## [Unreleased]
 [Unreleased]: https://github.com/Hoofoo-WHU/semon-ui/compare/0.0.5...HEAD
 
-## [0.0.5] - 2019-02-26
+## [0.0.5] - 2019-03-03
 [0.0.5]: https://github.com/Hoofoo-WHU/semon-ui-react/releases/tag/0.0.5
 ### 🎉 新增
 - `Tabs`相关组件
