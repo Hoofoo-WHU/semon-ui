@@ -19,9 +19,12 @@ class Menu extends React.Component<Menu.Props>{
   static ItemGroup: ItemGroup
   static propTypes: React.ValidationMap<Menu.Props> = {
     activeName: PropTypes.string.isRequired,
-    opens: PropTypes.arrayOf(PropTypes.string).isRequired,
+    opens: PropTypes.arrayOf(PropTypes.string),
     className: PropTypes.string,
     style: SemonPropTypes.style
+  }
+  static defaultProps = {
+    opens: []
   }
 
   render() {
@@ -49,7 +52,7 @@ class Menu extends React.Component<Menu.Props>{
 namespace Menu {
   export interface Props extends React.Props<{}> {
     activeName: string
-    opens: string[]
+    opens?: string[]
     onChange?: (name: string) => void
     onOpenChange?: (opens: string[]) => void
     className?: string

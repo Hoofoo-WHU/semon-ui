@@ -95,7 +95,7 @@
     "postcss": "^7.0.14",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.7.0",
+    "react": "^16.8.3",
     "react-dom": "^16.7.0",
     "sass-loader": "^7.1.0",
     "sinon": "^7.2.4",
