@@ -2,7 +2,16 @@
 所有的版本变更都会记录在这里
 
 ## [Unreleased]
-[Unreleased]: https://github.com/Hoofoo-WHU/semon-ui/compare/0.0.5...HEAD
+[Unreleased]: https://github.com/Hoofoo-WHU/semon-ui/compare/0.0.6...HEAD
+
+## [0.0.6] - 2019-03-04
+[0.0.6]: https://github.com/Hoofoo-WHU/semon-ui-react/releases/tag/0.0.6
+### 🎉 新增
+- `Menu`相关组件
+
+### 📝 修改
+- 修复`Button`中`htmlType`属性错误
+- 修复`class-merge`空字符判断错误
 
 ## [0.0.5] - 2019-03-03
 [0.0.5]: https://github.com/Hoofoo-WHU/semon-ui-react/releases/tag/0.0.5
