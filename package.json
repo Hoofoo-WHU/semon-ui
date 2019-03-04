@@ -1,6 +1,6 @@
 {
   "name": "@semon/semon-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "description": "🍪 一套简单的React组件库",
   "keywords": [
