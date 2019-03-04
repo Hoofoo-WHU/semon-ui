@@ -1,0 +1,58 @@
+@import "@/style/variable/color.scss";
+
+.menu-item {
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  margin-top: 4px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer;
+  width: calc(100%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    background-color: $color-divider;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    right: 0px;
+    width: 3px;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    transform: scale3d(1, 0, 1);
+    transition: all 0.2s;
+    background-color: $color-primary;
+    opacity: 0;
+  }
+  &:hover {
+    color: $color-primary;
+  }
+  &:active {
+    background-color: $color-primary-bg;
+  }
+  &.active {
+    color: $color-primary;
+    background-color: $color-primary-bg;
+  }
+  &.active::after {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    color: $color-disabled-text;
+    background-color: transparent;
+  }
+}

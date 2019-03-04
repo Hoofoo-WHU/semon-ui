@@ -6,6 +6,7 @@ import Col from './component/Col'
 import Layout from './component/Layout'
 import Message from './component/Message'
 import Tabs from './component/Tabs'
+import Menu from './component/Menu'
 
 export {
   Button,
@@ -15,5 +16,6 @@ export {
   Col,
   Layout,
   Message,
-  Tabs
+  Tabs,
+  Menu
 }

@@ -1,0 +1,83 @@
+@import "@/style/variable/color.scss";
+.menu-submenu {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  height: 40px;
+  transition: all 0.3s;
+  position: relative;
+  .title {
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    height: 40px;
+    line-height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+    width: calc(100% - 1px);
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      width: 10px;
+      transform: translate3d(0, 2px, 0);
+      transition: all 0.3s;
+      &::before,
+      &::after {
+        transition: all 0.3s;
+        position: absolute;
+        border-radius: 2px;
+        content: "";
+        display: block;
+        height: 1.5px;
+        width: 6px;
+        background: linear-gradient(to right, $color-text, $color-text);
+      }
+      &::before {
+        transform: rotateZ(-45deg) translateX(2px);
+      }
+      &::after {
+        transform: rotateZ(45deg) translateX(-2px);
+      }
+      &.active {
+        transform: translate3d(0, -1px, 0);
+        &::before {
+          transform: rotateZ(45deg) translateX(2px);
+        }
+        &::after {
+          transform: rotateZ(-45deg) translateX(-2px);
+        }
+      }
+    }
+    &:hover {
+      color: $color-primary;
+      .arrow {
+        &::before,
+        &::after {
+          background: linear-gradient(to right, $color-primary, $color-primary);
+        }
+      }
+    }
+    &:active {
+      background-color: $color-primary-bg;
+    }
+  }
+  &.active {
+    height: unset;
+  }
+  &.disabled .title {
+    color: $color-disabled-text;
+    background: transparent;
+    cursor: not-allowed;
+    .arrow {
+      &::before,
+      &::after {
+        background: linear-gradient(to right, $color-disabled-text, $color-disabled-text);
+      }
+    }
+  }
+}

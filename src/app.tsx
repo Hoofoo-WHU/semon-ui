@@ -1,13 +1,16 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-import { Button, Icon, Input, Row, Col, Layout, Message, Tabs } from './'
+import { Button, Icon, Input, Row, Col, Layout, Message, Tabs, Menu } from './'
 import '@/style/app.scss'
+import Sider from './component/Layout/Sider';
 
 interface IState {
   disabled: boolean,
   type?: 'primary' | 'dashed' | 'danger',
   value: string,
   activeName: string,
+  memuActiveName: string,
+  menuOpens: string[],
   tabPostion: Tabs.Props['tabPosition'],
   tabSize: Tabs.Props['size']
 }
@@ -18,8 +21,10 @@ class App extends React.Component<any, IState> {
     type: undefined,
     value: '',
     activeName: '2',
+    memuActiveName: '1',
     tabPostion: 'top',
-    tabSize: 'default'
+    tabSize: 'default',
+    menuOpens: ['3']
   }
   disabled() {
     this.setState((state) => {
@@ -42,6 +47,36 @@ class App extends React.Component<any, IState> {
   }
   render() {
     return <React.Fragment>
+      <h1>Memu</h1>
+      <Layout>
+        <Sider style={{ width: 260 }}>
+          <Menu activeName={this.state.memuActiveName}
+            opens={this.state.menuOpens}
+            onOpenChange={(opens) => this.setState({ menuOpens: opens })}
+            onChange={(name) => this.setState({ memuActiveName: name })}>
+            <Menu.Item name='1'><Icon type='user' />Navigation One</Menu.Item>
+            <Menu.Item name='2'>Navigation Two</Menu.Item>
+            <Menu.SubMenu name='3' title='Navigation Three'>
+              <Menu.Item name='o3' disabled>Option 3</Menu.Item>
+              <Menu.Item name='o4'>Option 4</Menu.Item>
+              <Menu.SubMenu name='s1' title='Submenu'>
+                <Menu.Item name='o5'>Option 5</Menu.Item>
+                <Menu.Item name='o6'>Option 6</Menu.Item>
+              </Menu.SubMenu>
+            </Menu.SubMenu>
+            <Menu.SubMenu name='4' title='Navigation Four'>
+              <Menu.ItemGroup title='分类1'>
+                <Menu.Item name='o7'>Option 7</Menu.Item>
+                <Menu.Item name='o8'>Option 8</Menu.Item>
+              </Menu.ItemGroup>
+              <Menu.ItemGroup title='分类2'>
+                <Menu.Item name='o9'>Option 9</Menu.Item>
+                <Menu.Item name='o10'>Option 10</Menu.Item>
+              </Menu.ItemGroup>
+            </Menu.SubMenu>
+          </Menu>
+        </Sider>
+      </Layout>
       <h1>Tabs</h1>
       <Button.Group style={{ marginBottom: 8 }}>
         <Button onClick={() => this.setState({ tabPostion: 'top' })}>Top</Button>

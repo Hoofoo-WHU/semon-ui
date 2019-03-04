@@ -1,0 +1,13 @@
+@import "@/style/variable/color.scss";
+.menu-item-group {
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  & > label {
+    font-size: 14px;
+    color: $color-text-label;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
