@@ -19,7 +19,7 @@ const config: webpack.Configuration = merge(base, {
   },
   output: {
     library: 'semon',
-    libraryTarget: 'umd'
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [

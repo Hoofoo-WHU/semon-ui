@@ -8,12 +8,16 @@ type NoticeType = 'info' | 'error' | 'warn' | 'success'
 const _animationTime = 300
 
 const _options: Message.Option = {
-  container: document.body,
+  container: undefined,
   duration: 3000
 }
 
-let _messageRoot = document.createElement('div')
-_messageRoot.className = styled.message
+let _messageRoot: HTMLDivElement
+if (typeof document !== 'undefined') {
+  _options.container = document.body
+  _messageRoot = document.createElement('div')
+  _messageRoot.className = styled.message
+}
 
 function _init() {
   const container = _options.container

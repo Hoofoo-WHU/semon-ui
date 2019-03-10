@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as enquire from 'enquire.js'
 import styled from '@/style/component/Row.scss'
 import * as PropTypes from 'prop-types'
 import * as AirbnbPropTypes from 'airbnb-prop-types'
@@ -7,6 +6,11 @@ import classMerge from '../../until/class-merge'
 import { tuple } from '../../until/type'
 import Col from './Col'
 import RowContext from './RowContext'
+
+let enquire: any
+if (typeof window !== 'undefined') {
+  enquire = require('enquire.js')
+}
 
 const RowJustify = tuple('start', 'end', 'space-between', 'space-around', 'center')
 type RowJustify = typeof RowJustify[number]
@@ -82,36 +86,40 @@ class Row extends React.Component<Row.Props, IRowState>{
   }
 
   componentDidMount() {
-    Reflect.ownKeys(responsiveMap).forEach(v => {
-      enquire.register(responsiveMap[v], {
-        match: () => {
-          if (typeof this.props.gutter !== 'object') {
-            return
-          }
-          this.setState(prevState => ({
-            screen: {
-              ...prevState.screen,
-              [v]: true,
+    if (enquire) {
+      Reflect.ownKeys(responsiveMap).forEach(v => {
+        enquire.register(responsiveMap[v], {
+          match: () => {
+            if (typeof this.props.gutter !== 'object') {
+              return
             }
-          }))
-        },
-        unmatch: () => {
-          this.setState(prevState => ({
-            screen: {
-              ...prevState.screen,
-              [v]: false,
-            }
-          }))
-        },
-        destroy() { }
+            this.setState(prevState => ({
+              screen: {
+                ...prevState.screen,
+                [v]: true,
+              }
+            }))
+          },
+          unmatch: () => {
+            this.setState(prevState => ({
+              screen: {
+                ...prevState.screen,
+                [v]: false,
+              }
+            }))
+          },
+          destroy() { }
+        })
       })
-    })
+    }
   }
 
   componentWillUnmount() {
-    Object.keys(responsiveMap).forEach(v =>
-      enquire.unregister(responsiveMap[v])
-    )
+    if (enquire) {
+      Object.keys(responsiveMap).forEach(v =>
+        enquire.unregister(responsiveMap[v])
+      )
+    }
   }
 
   renderChildren() {

@@ -42,11 +42,13 @@ class Button extends React.Component<Button.Props, State> {
   }
 
   onClick(e: React.MouseEvent) {
-    clearTimeout(this._animatingTimer)
     this.setState({ clickAnimating: false })
-    setTimeout(() => this.setState({ clickAnimating: true }), 16)
-    this._animatingTimer = setTimeout(() => this.setState({ clickAnimating: false }), 2000)
+    this._animatingTimer = setTimeout(() => this.setState({ clickAnimating: true }), 0)
     this.props.onClick && this.props.onClick(e)
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._animatingTimer)
   }
 
   render() {
