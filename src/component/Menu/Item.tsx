@@ -17,10 +17,11 @@ class Item extends React.Component<Item.Props>{
 
   readonly context: IMenuContext
 
-  private clickHandle() {
+  private clickHandle(e: React.MouseEvent) {
     if (!this.props.disabled) {
       const value = this.context
-      const { name } = this.props
+      const { name, onClick } = this.props
+      onClick && onClick(e)
       value.onChange(name)
     }
   }
@@ -49,6 +50,7 @@ namespace Item {
     disabled?: boolean
     className?: string
     style?: React.CSSProperties
+    onClick?: React.MouseEventHandler
   }
 }
 
