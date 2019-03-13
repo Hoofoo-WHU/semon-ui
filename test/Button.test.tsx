@@ -17,6 +17,7 @@ describe('Button', () => {
     document.body.appendChild(container)
   })
   afterEach(() => {
+    ReactDOM.unmountComponentAtNode(container)
     container.remove()
     container = null
   })

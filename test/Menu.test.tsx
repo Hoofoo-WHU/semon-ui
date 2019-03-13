@@ -183,6 +183,14 @@ describe('Menu', () => {
       Simulate.click(item)
       fake.should.has.not.been.called
     })
+    it('可以触发click', () => {
+      const fake = sinon.fake()
+      ReactDOM.render(<Menu activeName='1'>
+        <Menu.Item name='1' onClick={fake}></Menu.Item>
+      </Menu>, container)
+      Simulate.click(container.querySelector(`.${styledItem['menu-item']}`))
+      fake.should.has.been.called
+    })
   })
 
   describe('Menu.ItemGroup', () => {
