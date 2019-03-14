@@ -64,7 +64,7 @@ class Col extends React.Component<Col.Props> {
     classes.push(styled.col)
     push(this.props, '')
     const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
-    sizes.forEach(name => this.props[name] && push(this.props[name], name))
+    sizes.forEach(name => this.props[name] && push(this.props[name], `${name}-`))
     return classes.join(' ')
   }
   private style(): React.CSSProperties {
