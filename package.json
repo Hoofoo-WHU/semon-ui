@@ -92,7 +92,7 @@
     "mocha": "^5.2.0",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.11.0",
-    "postcss": "^7.0.14",
+    "postcss": "^8.2.10",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
